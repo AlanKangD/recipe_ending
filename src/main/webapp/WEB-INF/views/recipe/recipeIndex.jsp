@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChefKang_recipe_BO</title>
+    <title>ChefAlan_recipe_BO</title>
     <link rel="stylesheet" href="${contextPath}/assets/css/reset.css" />
     <link rel="stylesheet" href="${contextPath}/assets/css/nav_style.css" />
 </head>
@@ -51,7 +51,7 @@
             -->
         </dl>
         <footer>
-            © ChefKang.&nbsp;<span class="uppercase">All Right Reserved</span>
+            © ChefAlan.&nbsp;<span class="uppercase">All Right Reserved</span>
         </footer>
     </nav>
     <iframe src="/index" frameborder="0" class="iframe" name="iframe"></iframe>

@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.menu{overflow-y:hidden; font-size:62.5%;}
+nav{position:fixed; width:236px; height:100vh; padding:45px 0 48px 24px; background:#444B59; box-shadow:0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);}
+h1{position:fixed; top:0; left:0; width:260px; height:45px; font-weight:bold;}
+h1 a{display:block; color:#fff; padding:11px 25px; font-size:1.4rem;}
+.iframe{width:calc(100% - 260px); height:100vh; margin-left:260px; background-color:#fff;}
+.depth1{color:#fff; padding:16px 0 8px 0; font-size:1.2rem; font-weight:500; line-height:1.8rem;}
+.depth1:first-of-type{border-top:1px solid #575d6a;}
+nav dl a{display:block; color:#999999; font-size:1rem;}
+.depth2{padding-bottom:8px; border-bottom:1px solid #575d6a;}
+.depth2_lst li{padding-bottom:8px; line-height:1.8rem;}
+.depth2_lst li a:hover{color:#fff; transition:0.1s;}
+
+footer{position:fixed; bottom:0; padding:24px 0 24px 0; font-size:0.8rem; color:#fff;}
+
+/* nav */
+.reci_upload::before{display:inline-block; content:""; vertical-align:middle; width:24px; height:24px; background:url("../images/ico_uploader.svg") no-repeat center center; background-size:contain;}
+.reci_modi::before{display:inline-block; content:""; vertical-align:middle; width:24px; height:24px; background:url("../images/ico_dropdown.svg") no-repeat center center; background-size:contain;}
+
+/* 공통 */
+.uppercase{text-transform:uppercase;}
+.ico_24{margin-right:5px;}
+.depth2_lst li.active a{color:#fff;}

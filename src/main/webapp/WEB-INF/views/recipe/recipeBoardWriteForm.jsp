@@ -54,20 +54,43 @@
 </script>
 </head>
 <body>
-	<div id="wrap" style="width: 400px; margin: 0 auto;">e
-		<h1 style="text-align: center">글쓰기</h1>
+	<div id="wrap" style="width: 400px; margin: 0 auto;">
+		<h1 style="text-align: center">레시피 등록 페이지</h1>
 		<form method="post" action="${contextPath }/recipe/recipeBoardoneFile" enctype="multipart/form-data">
-			<b>작성자</b><br>
+			<%--<b>작성자</b><br>
 			<!-- readonly : 읽기 전용 -->
-			<input type="text" name="id" value="id" readonly />
-			<hr>
-			<b>제목</b> <br> 
+			<input type="text" name="id" value="id" readonly />--%>
+			<br>
+			<b>레시피 제목</b> <br>
 			<input type="text" size="50" name="title" />
+			<br>
+			<br>
+			<b>레시피 설명</b> <br>
+			<textarea name="content" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
+			<br>
+			<b>완성된 요리 사진</b><br>
+				<input type="file" name="image_file_name2" onchange="readURL1(this);" />
+				<img id="preview1" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 			<hr>
-			<b>내용</b> <br>
-			<textarea name="content" rows="10" cols="50"></textarea>
+				<P>*상단 input 영역 까지는 고정된 입력 창*</P>
 			<hr>
-			<div>
+			<b>재료</b> <br>
+			<input type="text" size="50" placeholder="재료 요소1"/>
+			<input type="text" size="50" placeholder="재료 수량1"/>
+			<hr>
+
+			<b>레시피 순서</b> <br>
+			<textarea name="content" rows="10" cols="50" placeholder="레시피 내용"></textarea>
+			<br>
+			<br>
+			<b>이미지파일 첨부</b><br>
+			<input type="file" name="image_file_name" onchange="readURL(this);" />
+			<img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
+			<hr><br>
+
+
+
+			<%--<div>
 				<b>이미지파일 첨부</b><br> 
 				<input type="file" name="image_file_name" onchange="readURL(this);" /> 
 				<img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
@@ -80,7 +103,7 @@
 				<input type="file" name="image_file_name3" onchange="readURL2(this);" /> 
 				<img id="preview2" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 				<hr>
-			</div>
+			</div>--%>
 			<input type="submit" value="글쓰기" /> 
 		</form>
 	</div>

@@ -53,11 +53,4 @@ public class HomeController {
 	}
 
 
-	@RequestMapping(value = "recipe/index.do")
-	public String recipeIndex() {
-		return "recipe/recipeIndex";
-	}
-	
-	
-	
 }

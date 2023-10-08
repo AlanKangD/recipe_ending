@@ -16,7 +16,7 @@
 <div id="wrap">
     <nav class="menu_lst">
         <h1>
-            <a href="#" target="iframe">오만팔만개의 레시피</a>
+            <a href="#" target="iframe">ALAN 레시피 </a>
         </h1>
         <dl>
             <dt class="depth1">레시피 관리</dt>
@@ -54,18 +54,20 @@
             © ChefAlan.&nbsp;<span class="uppercase">All Right Reserved</span>
         </footer>
     </nav>
-    <iframe src="/index" frameborder="0" class="iframe" name="iframe"></iframe>
+   <%-- <iframe src="https://www.naver.com/" frameborder="0" class="iframe" name="iframe"></iframe>--%>
+
+
 </div>
 <script src="${contextPath}/assets/js/jquery-3.6.0.min.js"></script>
 <script>
-    $(window).on('load',function(){
+   /* $(window).on('load',function(){
         var sessionCurrent = sessionStorage.getItem('currentPage');
         if(!sessionCurrent){
-            $('.iframe').attr('src', './html/main.html');
+            $('.iframe').attr('src', 'https://www.naver.com/');
         }else if(sessionCurrent == './html/main.html'){
-            $('.iframe').attr('src', './html/main.html');
+            $('.iframe').attr('src', 'https://www.naver.com/');
         }
-    });
+    });*/
 
     $(function(){
         $('.menu_lst h1 a').click(function(){

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -18,8 +20,13 @@ public class RecipeBoardController {
 		
 		return "recipe/recipeBoard";
 	}
+
+	@RequestMapping(value = "recipe/index.do" , method = RequestMethod.GET)
+	public String recipeIndex() {
+		return "recipe/recipeIndex";
+	}
 	
-	@GetMapping("recipe/recipeBoardWrite")
+	@GetMapping("recipe/recipeBoardWrite.do")
 	public String recipeBoardWrite() {
 		
 		return "recipe/recipeBoardWriteForm";

@@ -1,8 +1,8 @@
 package com.care.root.recipeBoard.mapper;
 
-import com.care.root.recipeBoard.vo.FileInputTestVO;
+import com.care.root.recipeBoard.vo.FileVO;
 
 public interface BoardContentMapper {
-	public void insertFile(FileInputTestVO filevo);
+	public void insertFile(FileVO filevo);
 
 }

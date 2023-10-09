@@ -1,6 +1,6 @@
 package com.care.root.recipeBoard.controller;
 
-import com.care.root.recipeBoard.vo.FileInputTestVO;
+import com.care.root.recipeBoard.vo.FileVO;
 import com.care.root.recipeBoard.service.RecipeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,7 +70,7 @@ public class RecipeBoardController {
 /*
 			File saveFile1 = new File(IMAGE_REPO + "/" + file1.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
 */
-			FileInputTestVO fileVO  = new FileInputTestVO();
+			FileVO fileVO  = new FileVO();
 			/*try {
 			*//*	file.transferTo(saveFile); //파일을 저장하는 명령문
 				file1.transferTo(saveFile1); //파일을 저장하는 명령문

@@ -2,10 +2,28 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.care.root.recipeBoard.mapper.StaticFileInputMapper">
+<mapper namespace="com.care.root.file.mapper.StaticFileInputMapper">
 
-	<insert id="insertFile">
-	insert into boardcontentDB values(1, #{file1}, #{file2}, #{file3})
+	<insert id="insertFileDB">
+		insert into
+			ATTACHEMENT (
+			file_original_name
+			, file_chage_name
+			, file_size
+			, file_type
+			, file_dt
+			)
+		values
+		    (
+				#{fileOriginalName}
+				, #{fileChangeName}
+				, #{fileSize}
+				, #{fileType}
+				, now()
+			)
+
+
+
 	</insert>
 	
 </mapper>

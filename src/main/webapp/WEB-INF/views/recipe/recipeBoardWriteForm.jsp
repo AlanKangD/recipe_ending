@@ -67,29 +67,37 @@
 
 			<br>
 			<b>레시피 제목</b> <br>
-			<input type="text" name="title" placeholder="레시피 제목"/>
+			<input type="text" name="recipeName" id="recipeName" placeholder="레시피 제목"/>
+			<br>
+			<b>레시피 종류</b> <br>
+			<input type="text" name="recipeType" id="recipeType" placeholder="레시피 제목"/>
 			<br>
 			<br>
 			<b>레시피 설명</b> <br>
-			<textarea name="recipeExplanation" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
+			<textarea name="recipeExplanation" id="recipeExplanation" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
 			<br>
 			<b>완성된 요리 사진</b><br>
 				<input type="file" name="image_file_name" onchange="readURL1(this);" />
 				<img id="preview1" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 			<br>
-			<b>레시피 팁</b> <br>
-			<textarea name="recipeTip" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
-			<hr>
+
 
 				<P>*상단 input 영역 까지는 고정된 입력 창*</P>
 			<hr>
 			<b>재료</b> <br>
-			<input type="text" name="ingredient" placeholder="재료 요소1"/>
-			<input type="text" name="ingredientAmount" placeholder="재료 수량1"/>
+			<input type="text" name="recipeEtcIngredient" id="recipeEtcIngredient" placeholder="재료 요소1"/>
+			<input type="text" name="recipeEtcQuantity" id="recipeEtcQuantity" placeholder="재료 수량1"/>
+			<hr>
+			<b>재료2</b> <br>
+			<input type="text" name="recipeEtcIngredient" id="recipeEtcIngredient" placeholder="재료 요소1"/>
+			<input type="text" name="recipeEtcQuantity" id="recipeEtcQuantity" placeholder="재료 수량1"/>
 			<hr>
 
 			<b>레시피 순서</b> <br>
-			<textarea name="content" rows="10" cols="50" placeholder="레시피 내용"></textarea>
+			<textarea name="recipeDetailContent" id="recipeDetailContent" rows="10" cols="50" placeholder="레시피 내용"></textarea>
+			<br>
+			<b>레시피 순서</b> <br>
+			<textarea name="recipeDetailContent" id="recipeDetailContent" rows="10" cols="50" placeholder="레시피 내용"></textarea>
 			<br>
 			<br>
 			<b>이미지파일 첨부</b><br>
@@ -98,6 +106,10 @@
 			<input type="file" name="multiFile" onchange="readURL(this);" multiple />
 			<img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 			<hr><br>
+			<b>레시피 팁</b> <br>
+			<textarea name="recipeDetailTip" id="recipeDetailTip" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
+			<textarea name="recipeDetailTip" id="recipeDetailTip" rows="10" cols="50" placeholder="레시피에 대한 설명이 들어있는 영역"></textarea>
+			<hr>
 
 
 

@@ -3,13 +3,39 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.root.recipeBoard.mapper.BoardContentMapper">
-	
-	<insert id="insertContent">
-	insert into boardcontentDB values(2, #{id}, #{title}, #{content})
-	</insert>
-	
-	<insert id="insertFile">
-	insert into fileDB values(2, #{file1}, #{file2}, #{file3})
+	<resultMap id="recipe" type="com.care.root.recipeBoard.vo.RecipeVO">
+		<id property="recipeNo" column="recipe_no"/>
+		<result property="recipeType" column="recipe_type"/>
+		<result property="recipeName" column="recipe_name"/>
+		<result property="recipeRegDt" column="recipe_reg_dt"/>
+		<result property="recipeDisplay" column="recipe_display"/>
+		<result property="recipeExplanation" column="recipe_explanation"/>
+		<result property="recipeFileName" column="recipe_file_name"/>
+		<result property="recipeDel" column="recipe_del"/>
+	</resultMap>
+
+
+	<insert id="insertFisrtStep" parameterMap="recipe">
+
+		insert into
+		    RECIPE (
+				recipe_type
+				, recope_name
+				, recipe_reg_dt
+				, recipe_display
+				, recipe_explanation
+				, recipe_file_name
+			)
+		VALUES
+			(
+				#{recipeType}
+				, #{recipeName}
+				, now()
+				, #{recipeDisplay}
+				, #{recipeExplanation}
+				, #{recipeFileName}
+			)
+
 	</insert>
 	
 </mapper>

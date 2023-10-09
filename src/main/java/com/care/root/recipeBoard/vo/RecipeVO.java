@@ -16,6 +16,10 @@ public class RecipeVO {
 
     private String recipeDisplay;   // 레시피 전시 여부
 
+    private String recipeExplanation;   // 레시피 설명
+
+    private String recipeFileName;      // 레시피 대표 사진 이름
+
     private String recipeDel;       // 레시피 삭제여부
 
     //////////////////////////////
@@ -48,6 +52,22 @@ public class RecipeVO {
 
     //////////////////////////////
 
+
+    public String getRecipeFileName() {
+        return recipeFileName;
+    }
+
+    public void setRecipeFileName(String recipeFileName) {
+        this.recipeFileName = recipeFileName;
+    }
+
+    public String getRecipeExplanation() {
+        return recipeExplanation;
+    }
+
+    public void setRecipeExplanation(String recipeExplanation) {
+        this.recipeExplanation = recipeExplanation;
+    }
 
     public int getRecipeNo() {
         return recipeNo;

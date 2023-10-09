@@ -1,10 +1,11 @@
 package com.care.root.recipeBoard.controller;
 
-import com.care.root.recipeBoard.vo.FileVO;
+import com.care.root.file.controller.FileServiceImpl;
+import com.care.root.file.vo.FileVO;
 import com.care.root.recipeBoard.service.RecipeBoardService;
+import com.care.root.recipeBoard.vo.RecipeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -17,7 +18,7 @@ public class RecipeBoardController {
 	
 	@Autowired
 	RecipeBoardService rs;
-	public static final String IMAGE_REPO = "/user/Documents/images";
+
 	@GetMapping("recipe/recipeBoard")
 	public String recipeBoardList() {
 		
@@ -34,17 +35,35 @@ public class RecipeBoardController {
 		
 		return "recipe/recipeBoardWriteForm";
 	}
-	@Transactional
+	//@Transactional
 	@PostMapping("recipe/recipeBoardWrite")
-	public String recipeBoardOneFile(MultipartHttpServletRequest mul, @RequestParam("multiFile") List<MultipartFile> multiFileList) {
+	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
+									 @RequestParam("multiFile") List<MultipartFile> multiFileList,
+									 @RequestParam("recipeDetailContent") List<?> recipeDetailContent,
+									 @RequestParam("recipeDetailTip") List<?> recipeDetailTip,
+									 @RequestParam("recipeEtcIngredient") List<?> recipeEtcIngredient,
+									 @RequestParam("recipeEtcQuantity") List<?> recipeEtcQuantity
+									 ) {
+
+		FileServiceImpl fs = new FileServiceImpl();
 		// STATIC DB INSERT just one data
-		System.out.println("controller title : " +mul.getParameter("title"));
+		System.out.println("controller title : " +mul.getParameter("recipeName"));
+		System.out.println("controller recipeType : " +mul.getParameter("recipeType"));
 		System.out.println("controller recipeExplanation : " +mul.getParameter("recipeExplanation"));
+
+
 		MultipartFile file = mul.getFile("image_file_name");
-		System.out.println("controller file1 : "  +file.getOriginalFilename());
+		System.out.println("controller file1 : "  + file.getOriginalFilename());
 		System.out.println("controller getSize : "  +file.getSize());
 		System.out.println("controller getContentType : "  +file.getContentType());
-		System.out.println("controller recipeTip : " +mul.getParameter("recipeTip"));
+
+		RecipeVO RecipeVO = new RecipeVO();
+		RecipeVO.setRecipeName(mul.getParameter("recipeName"));
+		RecipeVO.setRecipeExplanation(mul.getParameter("recipeExplanation"));
+		RecipeVO.setRecipeType(mul.getParameter("recipeType"));
+		RecipeVO.setRecipeFileName(file.getOriginalFilename());
+		fs.fileProcess(mul.getFile("image_file_name"));
+		rs.insertFisrtStep(RecipeVO);
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 
@@ -59,6 +78,11 @@ public class RecipeBoardController {
 			System.out.println("multifile :: " + i +"번째 : " +  multiFileList.get(i).getOriginalFilename());
 		}
 
+		System.out.println("recipeDetailContent" + recipeDetailContent);
+		System.out.println("recipeDetailTip" + recipeDetailTip);
+		System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
+		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
+
 		//////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -66,7 +90,7 @@ public class RecipeBoardController {
 
 		//mapper.insertContent(contentVO);
 		if(file.getSize() != 0  ) {
-			File saveFile = new File(IMAGE_REPO + "/" + file.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
+			//File saveFile = new File(IMAGE_REPO + "/" + file.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
 /*
 			File saveFile1 = new File(IMAGE_REPO + "/" + file1.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
 */
@@ -92,7 +116,8 @@ public class RecipeBoardController {
 
 		return  "redirect:recipeBoard";
 	}
-	
+
+
 	
 	
 }

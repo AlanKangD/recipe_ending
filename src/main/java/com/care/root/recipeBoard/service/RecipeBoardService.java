@@ -1,8 +1,9 @@
 package com.care.root.recipeBoard.service;
 
+import com.care.root.recipeBoard.vo.RecipeVO;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface RecipeBoardService {
-	public void staticFileInput(MultipartHttpServletRequest mul);
 
+	public void insertFisrtStep(RecipeVO vo);
 }

@@ -10,10 +10,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Primary
 @Service
 public class RecipeBoardServiceImpl implements RecipeBoardService{
-	@Autowired
-	StaticFileInputMapper fileMapper;
-	@Autowired
-	BoardContentMapper mapper;
+	/*@Autowired
+	StaticFileInputMapper fileMapper;*/
+	/*@Autowired
+	BoardContentMapper mapper;*/
 
 	@Override
 	public void staticFileInput(MultipartHttpServletRequest mul) {

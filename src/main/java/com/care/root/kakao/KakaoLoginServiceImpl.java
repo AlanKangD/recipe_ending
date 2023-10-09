@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Primary
 @Service
 public class KakaoLoginServiceImpl implements KakaoLoginService{
-	@Autowired KakaoLoginMapper mapper;
+	//@Autowired KakaoLoginMapper mapper;
 	
 	@Override
 	public void registerKakao(Map<String, Object> dto, HttpSession session) {
@@ -33,10 +33,10 @@ public class KakaoLoginServiceImpl implements KakaoLoginService{
 			vo.setNickname(nickname);
 			vo.setPw(pw);
 			session.setAttribute("kakao", id);
-			KakaoVO idChk = mapper.checkid(id);
+		/*	KakaoVO idChk = mapper.checkid(id);
 			if(idChk.getId() != id)
 					mapper.registerKakao(vo);
-			
+			*/
 			
 		}
 		

@@ -1,4 +1,4 @@
-package com.care.root.recipeBoard;
+package com.care.root.recipeBoard.service;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 

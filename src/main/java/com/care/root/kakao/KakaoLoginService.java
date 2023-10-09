@@ -1,4 +1,4 @@
-package com.care.root;
+package com.care.root.kakao;
 
 import java.util.Map;
 

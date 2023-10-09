@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.care.root.KakaoLoginMapper">
+<mapper namespace="com.care.root.kakao.KakaoLoginMapper">
 	 
-	<resultMap type="com.care.root.KakaoVO" id="kakao">
+	<resultMap type="com.care.root.kakao.KakaoVO" id="kakao">
 		<id property="id" column="id"/>
 		<result property="pw" column="pw"/>
 		<result property="nickname" column="nickname"/>

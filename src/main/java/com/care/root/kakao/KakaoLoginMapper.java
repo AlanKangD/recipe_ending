@@ -1,4 +1,4 @@
-package com.care.root;
+package com.care.root.kakao;
 
 public interface KakaoLoginMapper {
 	

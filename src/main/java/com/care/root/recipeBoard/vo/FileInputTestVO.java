@@ -1,4 +1,4 @@
-package com.care.root.recipeBoard;
+package com.care.root.recipeBoard.vo;
 
 public class FileInputTestVO {
 	private int fileseq;

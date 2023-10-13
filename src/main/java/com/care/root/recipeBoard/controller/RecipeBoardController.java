@@ -15,8 +15,8 @@ import java.util.List;
 @Controller
 public class RecipeBoardController {
 	
-	@Autowired
-	RecipeBoardService rs;
+	/*@Autowired
+	RecipeBoardService rs;*/
 	public static final String IMAGE_REPO = "/user/Documents/images";
 	@GetMapping("recipe/recipeBoard")
 	public String recipeBoardList() {

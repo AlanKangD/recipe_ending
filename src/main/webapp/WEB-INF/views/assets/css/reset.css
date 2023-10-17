@@ -33,6 +33,13 @@ body {
 menu, ol, ul {
 	list-style: none;
 }
+button{
+    vertical-align:middle;
+    border:0;
+    background:none;
+    outline:none;
+    cursor:pointer;
+}
 blockquote, q {
 	quotes: none;
 }

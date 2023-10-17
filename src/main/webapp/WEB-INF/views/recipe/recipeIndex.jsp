@@ -25,13 +25,13 @@
                     <li>
                         <a href="#" target="iframe">
                             <i class="ico_24 reci_upload"></i>
-                            레시피 등록
+                            <span>레시피 등록</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" target="iframe">
                             <i class="ico_24 reci_modi"></i>
-                            레시피 수정
+                            <span>레시피 수정</span>
                         </a>
                     </li>
                 </ul>
@@ -50,6 +50,11 @@
             </dd>
             -->
         </dl>
+        <div class="menubar_toggle_wrap">
+            <button class="menubar_toggle">
+                <img src="../assets/images/ico_lnb_small.svg" alt="접기/펴기">
+            </button>
+        </div>
         <footer>
             © ChefAlan.&nbsp;<span class="uppercase">All Right Reserved</span>
         </footer>
@@ -79,6 +84,10 @@
             $('.depth2_lst li').siblings().removeClass('active');
             $(this).addClass('active')
             sessionStorage.setItem('currentPage', $(this).find('a').attr('href'));
+        });
+
+        $('.menubar_toggle').click(function(){
+            $('.menu_lst').toggleClass('collapsed');
         });
     });
 </script>

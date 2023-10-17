@@ -6,6 +6,7 @@
 <title>글쓰기창</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<link rel="stylesheet" href="${contextPath}/assets/css/reset.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
@@ -61,6 +62,7 @@
 </script>
 </head>
 <body>
+    <!--
 	<div id="wrap" style="width: 400px; margin: 0 auto;">
 		<h1 style="text-align: center">레시피 등록 페이지</h1>
 		<form method="post" action="${contextPath }/recipe/recipeBoardWrite" enctype="multipart/form-data">
@@ -102,22 +104,29 @@
 
 
 			<%--<div>
-				<b>이미지파일 첨부</b><br> 
-				<input type="file" name="image_file_name" onchange="readURL(this);" /> 
+				<b>이미지파일 첨부</b><br>
+				<input type="file" name="image_file_name" onchange="readURL(this);" />
 				<img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 				<hr>
-				<b>이미지파일 첨부</b><br> 
-				<input type="file" name="image_file_name2" onchange="readURL1(this);" /> 
+				<b>이미지파일 첨부</b><br>
+				<input type="file" name="image_file_name2" onchange="readURL1(this);" />
 				<img id="preview1" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 				<hr>
-				<b>이미지파일 첨부</b><br> 
-				<input type="file" name="image_file_name3" onchange="readURL2(this);" /> 
+				<b>이미지파일 첨부</b><br>
+				<input type="file" name="image_file_name3" onchange="readURL2(this);" />
 				<img id="preview2" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 				<hr>
 			</div>--%>
-			<input type="submit" value="글쓰기" /> 
+			<input type="submit" value="글쓰기" />
 		</form>
 	</div>
+    -->
+    <div id="wrap">
+        <main id="container">
+            <h2>레시피 등록</h2>
+            <div class="sub_card"></div>
+        </main>
+    </div>
 </body>
 </html>
 </html>

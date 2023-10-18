@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" href="${contextPath}/assets/css/reset.css" />
+<link rel="stylesheet" href="${contextPath}/assets/css/recipe_write.css" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
@@ -124,7 +125,16 @@
     <div id="wrap">
         <main id="container">
             <h2>레시피 등록</h2>
-            <div class="sub_card"></div>
+            <div class="sub_card">
+                <div class="sub_card_inner">
+                    <ul class="reci_cont">
+                        <li>
+                            <p>레시피 제목</p>
+                            <input type="text">
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </main>
     </div>
 </body>

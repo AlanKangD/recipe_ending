@@ -1,6 +1,6 @@
 package com.care.root.recipeBoard.service;
 
-import com.care.root.recipeBoard.mapper.BoardContentMapper;
+import com.care.root.mybatis.recipeBoard.BoardContentMapper;
 import com.care.root.recipeBoard.vo.RecipeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -12,7 +12,6 @@ public class RecipeBoardServiceImpl implements RecipeBoardService{
 
 	@Autowired
 	BoardContentMapper mapper;
-
 
 	@Override
 	public void insertFisrtStep(RecipeVO vo) {

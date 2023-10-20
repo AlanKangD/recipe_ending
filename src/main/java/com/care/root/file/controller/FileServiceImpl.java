@@ -1,8 +1,9 @@
 package com.care.root.file.controller;
 
-import com.care.root.file.mapper.StaticFileInputMapper;
+import com.care.root.mybatis.file.StaticFileInputMapper;
 import com.care.root.file.vo.FileVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,16 +12,17 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
-
+@Primary
 @Service
-public class FileServiceImpl {
+public class FileServiceImpl implements FileService{
 
     @Autowired
-    StaticFileInputMapper mapper;
+    StaticFileInputMapper fileInputMapper;
 
     
     public static final String IMAGE_REPO = "/Users/alankang/Documents/images/imagerepo";
 
+    @Override
     public void fileProcess(MultipartFile file) {
         // MultipartFile file = mul.getFile("file");
 
@@ -51,7 +53,7 @@ public class FileServiceImpl {
         vo.setFileSize(String.valueOf(file.getSize()));
         vo.setFileType(file.getContentType());
 
-        mapper.insertFileDB(vo);
+        fileInputMapper.insertFileDB(vo);
 
     }
 

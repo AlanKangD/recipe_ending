@@ -1,5 +1,6 @@
 package com.care.root.recipeBoard.controller;
 
+import com.care.root.file.controller.FileService;
 import com.care.root.file.controller.FileServiceImpl;
 import com.care.root.file.vo.FileVO;
 import com.care.root.recipeBoard.service.RecipeBoardService;
@@ -18,6 +19,9 @@ public class RecipeBoardController {
 	
 	@Autowired
 	RecipeBoardService rs;
+
+	@Autowired
+	FileService fileService;
 
 	@GetMapping("recipe/recipeBoard")
 	public String recipeBoardList() {
@@ -45,7 +49,6 @@ public class RecipeBoardController {
 									 @RequestParam("recipeEtcQuantity") List<?> recipeEtcQuantity
 									 ) {
 
-		FileServiceImpl fs = new FileServiceImpl();
 		// STATIC DB INSERT just one data
 		System.out.println("controller title : " +mul.getParameter("recipeName"));
 		System.out.println("controller recipeType : " +mul.getParameter("recipeType"));
@@ -62,7 +65,7 @@ public class RecipeBoardController {
 		RecipeVO.setRecipeExplanation(mul.getParameter("recipeExplanation"));
 		RecipeVO.setRecipeType(mul.getParameter("recipeType"));
 		RecipeVO.setRecipeFileName(file.getOriginalFilename());
-		fs.fileProcess(mul.getFile("image_file_name"));
+		fileService.fileProcess(mul.getFile("image_file_name"));
 		rs.insertFisrtStep(RecipeVO);
 
 		//////////////////////////////////////////////////////////////////////////////////////////

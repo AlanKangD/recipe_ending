@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.care.root.recipeBoard.mapper.BoardContentMapper">
+<mapper namespace="com.care.root.mybatis.recipeBoard.BoardContentMapper">
 	<resultMap id="recipe" type="com.care.root.recipeBoard.vo.RecipeVO">
 		<id property="recipeNo" column="recipe_no"/>
 		<result property="recipeType" column="recipe_type"/>
@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 
-	<insert id="insertFisrtStep" parameterMap="recipe">
+	<insert id="insertFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
 
 		insert into
 		    RECIPE (
@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				#{recipeType}
 				, #{recipeName}
 				, now()
-				, #{recipeDisplay}
+				, 'Y'
 				, #{recipeExplanation}
 				, #{recipeFileName}
 			)

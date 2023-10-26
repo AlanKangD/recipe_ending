@@ -1,5 +1,37 @@
 @charset "utf-8";
 
-#container{position:relative; background-color:#f8f9fc; height:100vh; padding:50px 30px 60px 30px;}
+.pad_t_25{padding-top:25px;}
+.pad_b_50{padding-bottom:50px;}
+.recipe_write{position:relative; background-color:#f8f9fc; height:100vh; padding:50px 30px 60px 30px;}
 h2{position:absolute; top:15px; left:30px; font-size:22px; font-weight:bold; color:#303030;}
 .sub_card{background-color:#fff; border-radius:8px; padding:25px; box-shadow:0 0 20px 0 rgba(0, 0, 0, 0.12)};
+.sub_card_inner{display:flex;}
+
+.input_text[type=text], .input_text[type=password]{border-radius:8px;}
+.input_writing_group{padding:12px; border-radius:8px;}
+.recipe_write .sub_card + .sub_card{margin-top:26px;}
+.recipe_write .sub_card_inner{display:flex; justify-content:space-between;}
+.recipe_write .reci_cont{width:65%;}
+.recipe_write .reci_cont li{display:flex; width:100%;}
+.reci_cont .cont_tit{width:25%; font-size:20px; padding-top:8px;}
+.reci_cont .input_text[type=text]:focus{border:1px solid #DBDBDB;}
+.reci_cont .select_box{min-width:auto;}
+.reci_cont .select_wrap{width:75%;}
+.recipe_write .reci_cont li + li{margin-top:25px;}
+.recipe_write .input_area{width:75%;}
+.input_writing_group:focus{border:1px solid #0f62fe;}
+.select_box_value{font-size:16px; color:#222 !important;}
+.cook_inf{display:flex;}
+.cook_inf_wrap{display:flex; align-items:center;}
+.cook_inf_wrap + .cook_inf_wrap{margin-left:8px;}
+.select_wrap .select_box_label{display:block; padding-right:8px; font-size:14px;}
+
+/* 1st_card - right */
+#divMainPhotoUpload{display:flex; align-items:center; justify-content:center; width:35%;}
+#divMainPhotoUpload #divMainPhotoBox{padding:25px;}
+#divMainPhotoUpload #divMainPhotoBox img{max-width:300px;}
+
+/* 2nd_card */
+.card_desc{display:flex; align-items:center;}
+.card_desc i{margin-right:5px;}
+.card_desc p{font-size:14px; line-height:18px;}

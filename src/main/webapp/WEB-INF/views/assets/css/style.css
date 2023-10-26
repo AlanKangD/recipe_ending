@@ -320,6 +320,7 @@ p {
   src: url("../fonts/Poppins/Poppins-Regular.woff2") format("woff2"), url("../fonts/Suit/SUIT-Regular.woff2") format("opentype"), url("../fonts/Suit/SUIT-Regular.ttf") format("truetype");
 }
 /** Font **/
+/*
 h1 {
   font-size: 5.4rem;
   font-weight: 700;
@@ -355,7 +356,7 @@ h6 {
   font-weight: 500;
   line-height: 26px;
 }
-
+*/
 caption {
   font-size: 1.2rem;
   line-height: 24px;

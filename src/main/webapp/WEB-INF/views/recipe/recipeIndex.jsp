@@ -52,7 +52,7 @@
         </dl>
         <div class="menubar_toggle_wrap">
             <button class="menubar_toggle">
-                <img src="../assets/images/ico_lnb_small.svg" alt="접기/펴기">
+                <img src="${contextPath}/assets/images/ico_lnb_small.svg" alt="접기/펴기">
             </button>
         </div>
         <footer>

@@ -35,3 +35,24 @@ h2{position:absolute; top:15px; left:30px; font-size:22px; font-weight:bold; col
 .card_desc{display:flex; align-items:center;}
 .card_desc i{margin-right:5px;}
 .card_desc p{font-size:14px; line-height:18px;}
+.material_wrap{margin-top:16px;}
+.material_inner{display:flex; align-items:start; padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #d8d8d8;}
+.recipe_write .material_wrap .material_tit{display:flex; flex-wrap:wrap; justify-content:center;}
+.recipe_write .material_wrap .material_tit button{margin-top:12px;}
+.recipe_write .material_wrap .material_tit.input_area{width:230px;}
+.recipe_write .material_wrap .material_tit input{background-color:#fffdd7;}
+.recipe_write .material_wrap .input_area{width:360px;}
+.recipe_write .material_wrap input{height:50px; font-size:16px;}
+.material_inner .material_lst{margin-left:40px;}
+.material_inner .material_lst > li{display:flex; align-items:center;}
+.material_lst .input_text{width:330px;}
+.material_lst li + li{margin-top:8px;}
+.material_lst li + li:last-child{margin-top:16px;}
+.material_lst_del{margin-left:12px;}
+.mat_lst_plus.btn_lg.btn_icon{width:60px;}
+.lst_plus_wrap{justify-content:center;}
+.material_inner_plus{display:flex; justify-content:center;}
+.mat_innr_plus.btn_border{color:#222; border:1px solid #222;}
+.mat_innr_plus:hover{background-color:#f0f0f0 !important; transition:0.2s;}
+.mat_lst_plus.btn_border{border:1px solid #222;}
+.mat_lst_plus:hover{background-color:#f0f0f0 !important; transition:0.2s;}

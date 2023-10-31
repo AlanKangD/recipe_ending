@@ -298,8 +298,37 @@
             </div>
             <div class="sub_card">
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
-                <div>
-                </div>
+                <ul class="material_wrap">
+                    <li class="material_inner">
+                        <div class="input_group input_area material_tit">
+                              <input type="text" id="" class="input_text" value="" placeholder="재료 묶음 이름">
+                              <button class="btn btn_sm btn_secondary mat_innr_minus"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
+                        </div>
+                        <ul class="material_lst">
+                            <li>
+                                <input type="text" class="input_text" placeholder="예) 돼지고기">
+                                <input type="text" class="input_text" placeholder="예) 300g">
+                                <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                            </li>
+                            <li>
+                                <input type="text" class="input_text" placeholder="예) 양배추">
+                                <input type="text" class="input_text" placeholder="예) 1/2개">
+                                <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                            </li>
+                            <li>
+                                <input type="text" class="input_text" placeholder="예) 참기름">
+                                <input type="text" class="input_text" placeholder="예) 1T">
+                                <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                            </li>
+                            <li class="lst_plus_wrap">
+                                <button class="btn btn_md btn_border btn_icon mat_lst_plus"><i class="ico_add black ico_24"></i></button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="material_inner_plus">
+                        <button class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
+                    </li>
+                </ul>
             </div>
         </main>
     </div>
@@ -339,5 +368,7 @@ function isOverSize(file) {
 
     return (file.size > maxSize) ? true : false;
 }
+
+//재료 추가 삭제
 </script>
 </html>

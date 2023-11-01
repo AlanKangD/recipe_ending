@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기창</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" href="${contextPath}/assets/css/reset.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/style.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/jquery-ui.min.css" />
@@ -289,7 +291,7 @@
                     <div id="divMainPhotoUpload" class="">
                         <div id="divMainPhotoBox" class="img_upload_wrap" is_over="0">
                             <input type="file" id="imageFile" style="display:none;">
-                            <img id="preview" src="${contextPath}/assets/images/pic_upload.gif" alt="이미지 업로드 사진" />
+                            <img id="preview" src="${contextPath}/assets/images/pic_upload.gif" style="cursor: pointer;" alt="이미지 업로드 사진" />
                         </div>
                     </div>
                 </div>
@@ -302,13 +304,13 @@
                               <input type="text" id="" class="input_text" value="" placeholder="재료 묶음 이름">
                               <button class="btn btn_sm btn_secondary mat_innr_minus"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
-                        <ul class="material_lst">
+                        <ul id="material_lst" class="material_lst">
                             <li>
                                 <input type="text" class="input_text" placeholder="예) 돼지고기">
                                 <input type="text" class="input_text" placeholder="예) 300g">
                                 <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
                             </li>
-                            <li>
+                            <%--<li>
                                 <input type="text" class="input_text" placeholder="예) 양배추">
                                 <input type="text" class="input_text" placeholder="예) 1/2개">
                                 <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
@@ -317,9 +319,9 @@
                                 <input type="text" class="input_text" placeholder="예) 참기름">
                                 <input type="text" class="input_text" placeholder="예) 1T">
                                 <button id="material_lst_del" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
-                            </li>
+                            </li>--%>
                             <li class="lst_plus_wrap">
-                                <button class="btn btn_md btn_border btn_icon mat_lst_plus"><i class="ico_add black ico_24"></i></button>
+                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus"><i class="ico_add black ico_24"></i></button>
                             </li>
                         </ul>
                     </li>
@@ -348,6 +350,17 @@ $(function(){
 
         reader.readAsDataURL(file);
     });
+
+    $("#addItemButton").on("click", function() {
+        var text = "<input type='text' class='input_text' placeholder='예) 양배추'>";
+
+        var newItem = $("<li id= 'item2' >").innerHTML = text;
+
+        $("#material_lst").append(newItem);
+        //document.getElementById('item2').append(text);
+
+
+    });
 });
 
 
@@ -368,5 +381,8 @@ function isOverSize(file) {
 }
 
 //재료 추가 삭제
+
+
+
 </script>
 </html>

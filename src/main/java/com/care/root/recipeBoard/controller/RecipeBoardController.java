@@ -49,7 +49,7 @@ public class RecipeBoardController {
 									 @RequestParam("recipeEtcQuantity") List<?> recipeEtcQuantity
 									 ) {
 
-		// STATIC DB INSERT just one data
+		// STATIC DB INSERT just one list data
 		System.out.println("controller title : " +mul.getParameter("recipeName"));
 		System.out.println("controller recipeType : " +mul.getParameter("recipeType"));
 		System.out.println("controller recipeExplanation : " +mul.getParameter("recipeExplanation"));
@@ -68,7 +68,7 @@ public class RecipeBoardController {
 		fileService.fileProcess(mul.getFile("image_file_name"));
 		rs.insertFisrtStep(RecipeVO);
 
-		//////////////////////////////////////////////////////////////////////////////////////////
+		//////////////first step ok //////////////
 
 
 		// NOT STATIC DATA dont no data Amount
@@ -85,6 +85,14 @@ public class RecipeBoardController {
 		System.out.println("recipeDetailTip" + recipeDetailTip);
 		System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
 		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
+
+		// recipe 재료 영역 등록 start   recipeEtcIngredient recipeEtcQuantity
+		List test = (List) mul.getParameterNames();
+		/*List recipeEtcIngredienttest = mul.get  recipeEtcQuantity -> {String[2]@6996} ["재료 수량1", "재료 수량2"]
+ta
+		for(int i = 0; i < )*/
+
+
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 

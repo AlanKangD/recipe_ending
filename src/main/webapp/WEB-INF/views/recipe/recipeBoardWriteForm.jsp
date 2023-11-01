@@ -87,7 +87,8 @@
 			<b>재료</b> <br>
 			<input type="text" name="recipeEtcIngredient" id="recipeEtcIngredient" placeholder="재료 요소1"/>
 			<input type="text" name="recipeEtcQuantity" id="recipeEtcQuantity" placeholder="재료 수량1"/>
-			<hr>
+			<br>
+			<br>
 			<b>재료2</b> <br>
 			<input type="text" name="recipeEtcIngredient" id="recipeEtcIngredient" placeholder="재료 요소1"/>
 			<input type="text" name="recipeEtcQuantity" id="recipeEtcQuantity" placeholder="재료 수량1"/>

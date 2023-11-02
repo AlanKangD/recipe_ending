@@ -341,10 +341,6 @@
 </body>
 <script>
 $(function(){
-    const list = document.getElementById("material_lst");
-    const listItems = list.getElementsByTagName("li");
-    console.log('########### li 1 태그 정보 : ' + list);
-    console.log('########### li 1 태그 정보 : ' + listItems);
 
     $("#preview").on("click", function() {
         $('#imageFile').trigger('click');

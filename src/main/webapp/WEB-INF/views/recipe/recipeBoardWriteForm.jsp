@@ -305,7 +305,7 @@
                               <button class="btn btn_sm btn_secondary mat_innr_minus"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
                         <div class="material_lst_wrap">
-                            <ul class="material_lst">
+                            <ul id="material_lst"  class="material_lst">
                                 <li>
                                     <input type="text" class="input_text" placeholder="예) 돼지고기">
                                     <input type="text" class="input_text" placeholder="예) 300g">
@@ -341,6 +341,11 @@
 </body>
 <script>
 $(function(){
+    const list = document.getElementById("material_lst");
+    const listItems = list.getElementsByTagName("li");
+    console.log('########### li 1 태그 정보 : ' + list);
+    console.log('########### li 1 태그 정보 : ' + listItems);
+
     $("#preview").on("click", function() {
         $('#imageFile').trigger('click');
     });
@@ -364,13 +369,16 @@ $(function(){
         //$("#material_lst").append(newItem);
         //document.getElementById('item2').append(text);
 
-        var text = "<li><input type='text' class='input_text' placeholder='예) 재료명'><input type='text' class='input_text' placeholder='예) 용량'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del'><i class='ico_del white ico_24'></i></button></li>";
+        var text = "<li><input type='text' class='input_text' placeholder='예) 재료명'><input type='text' class='input_text' placeholder='예) 용량'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li>";
         $(".material_lst").append(text);
     });
+
     $(".material_lst_del").on("click", function(){
         console.log($(this));
         $(this).parent().remove();
     });
+
+
 });
 
 
@@ -391,8 +399,11 @@ function isOverSize(file) {
 }
 
 //재료 추가 삭제
+function deleteList(obj) {
 
+    obj.closest('li').remove();
 
+}
 
 </script>
 </html>

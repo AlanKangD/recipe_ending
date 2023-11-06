@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기창</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" href="${contextPath}/assets/css/reset.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/style.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/jquery-ui.min.css" />

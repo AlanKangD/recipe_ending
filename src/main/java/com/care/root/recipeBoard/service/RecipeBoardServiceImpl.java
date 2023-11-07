@@ -18,5 +18,10 @@ public class RecipeBoardServiceImpl implements RecipeBoardService{
 		mapper.insertFisrtStep(vo);
 	}
 
+	@Override
+	public void insertSecountStep(RecipeVO vo) {
+		mapper.insertSecountStep(vo);
+	}
+
 
 }

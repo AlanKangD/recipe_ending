@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -40,7 +41,7 @@ public class RecipeBoardController {
 		return "recipe/recipeBoardWriteForm";
 	}
 	//@Transactional
-	@PostMapping("recipe/recipeBoardWrite")
+	@PostMapping(value = "recipe/recipeBoardWrite")
 	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
 									 @RequestParam("multiFile") List<MultipartFile> multiFileList,
 									 @RequestParam("recipeDetailContent") List<?> recipeDetailContent,
@@ -65,10 +66,32 @@ public class RecipeBoardController {
 		RecipeVO.setRecipeExplanation(mul.getParameter("recipeExplanation"));
 		RecipeVO.setRecipeType(mul.getParameter("recipeType"));
 		RecipeVO.setRecipeFileName(file.getOriginalFilename());
-		fileService.fileProcess(mul.getFile("image_file_name"));
-		rs.insertFisrtStep(RecipeVO);
+		//fileService.fileProcess(mul.getFile("image_file_name"));
+		//rs.insertFisrtStep(RecipeVO);
 
 		//////////////first step ok //////////////
+
+
+		///////////// secound step start /////////
+		System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
+		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
+
+		for(int i=0; i < recipeEtcIngredient.size(); i++) {
+			List checkSplit = new ArrayList();
+			String splitText = (String) recipeEtcQuantity.get(i);
+			System.out.println("############3 " + splitText);
+
+			RecipeVO RecipeEtcVO = new RecipeVO();
+			RecipeEtcVO.setRecipeEtcIngredient((String) recipeEtcIngredient.get(i));
+			RecipeEtcVO.setRecipeEtcQuantity((String) recipeEtcQuantity.get(i));
+
+
+			//rs.insertSecountStep(RecipeEtcVO);
+
+		}
+
+		///////////////secount step end /////////////
+
 
 
 		// NOT STATIC DATA dont no data Amount
@@ -83,15 +106,14 @@ public class RecipeBoardController {
 
 		System.out.println("recipeDetailContent" + recipeDetailContent);
 		System.out.println("recipeDetailTip" + recipeDetailTip);
-		System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
-		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
 
 		// recipe 재료 영역 등록 start   recipeEtcIngredient recipeEtcQuantity
-		List test = (List) mul.getParameterNames();
+		/*List test = (List) mul.getParameterNames();
+		System.out.println("################## :: " + test);*/
+
 		/*List recipeEtcIngredienttest = mul.get  recipeEtcQuantity -> {String[2]@6996} ["재료 수량1", "재료 수량2"]
 ta
 		for(int i = 0; i < )*/
-
 
 
 		//////////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +150,13 @@ ta
 		return  "redirect:recipeBoard";
 	}
 
+	// g , T , t , ml , l , kg ,
+	/*public List splitCheckText(String text) {
+		List list = new ArrayList();
+		List whiteList =
+
+
+	}*/
 
 	
 	

@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 
+
 	<insert id="insertFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
 
 		insert into
@@ -37,5 +38,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			)
 
 	</insert>
-	
+
+
+	<insert id="insertSecountStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
+		<selectKey resultType="int" keyProperty="recipeNo" order="BEFORE">
+			SELECT RECIPE_NO FROM RECIPE order by RECIPE_REG_DT desc limit 1
+		</selectKey>
+		INSERT INTO
+			RECIPE_ETC
+			(
+				  RECIPE_ETC_INGREDIENT
+				, RECIPE_ETC_QUANTITY
+				, RECIPE_ETC_TYPE
+				, RECIPE_ETC_DT
+				, RECIPE_NO
+			)
+		VALUES
+		    (
+				#{recipeEtcIngredient}
+				, #{recipeEtcQuantity}
+				, #{recipeEtcType}
+				, now()
+				, #{recipeNo}
+			)
+
+
+	</insert>
 </mapper>

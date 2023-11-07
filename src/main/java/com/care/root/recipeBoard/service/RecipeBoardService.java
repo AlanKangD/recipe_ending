@@ -6,4 +6,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public interface RecipeBoardService {
 
 	public void insertFisrtStep(RecipeVO vo);
+
+	public void insertSecountStep(RecipeVO vo);
 }

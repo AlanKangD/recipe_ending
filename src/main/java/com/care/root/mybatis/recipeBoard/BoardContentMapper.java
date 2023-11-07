@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface BoardContentMapper {
 	public void insertFisrtStep(RecipeVO vo);
 
-
+	public void insertSecountStep(RecipeVO vo);
 }

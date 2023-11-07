@@ -55,6 +55,29 @@
 				$('#preview2').attr('src', e.target.result);
 			}
 		}*/
+		/*function recipego() {
+			let form = {}
+			let arr = $("#recipeEtcIngredient").serializeArray()
+			console.log(arr)
+
+			for(i=0;  i<arr.length; i++){
+				form[arr[i].name] = arr[i].value;
+			}
+			$.ajax({
+
+
+				url : "${contextPath }/recipe/recipeBoardWrite",
+				type : "POST",
+				dataType : "json",
+				data : JSON.stringify(form),
+				success : function(data) {
+				},
+				error : function() {
+					alert("서버문제 발생!")
+				}
+			})
+
+		}*/
 	}
 	
 	
@@ -63,7 +86,7 @@
 <body>
 	<div id="wrap" style="width: 400px; margin: 0 auto;">
 		<h1 style="text-align: center">레시피 등록 페이지</h1>
-		<form method="post" action="${contextPath }/recipe/recipeBoardWrite" enctype="multipart/form-data">
+		<form method="post" action="#" enctype="multipart/form-data">
 
 			<br>
 			<b>레시피 제목</b> <br>
@@ -128,7 +151,7 @@
 				<img id="preview2" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
 				<hr>
 			</div>--%>
-			<input type="submit" value="글쓰기" /> 
+			<input type="submit" value="글쓰기" />
 		</form>
 	</div>
 </body>

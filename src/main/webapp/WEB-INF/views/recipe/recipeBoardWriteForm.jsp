@@ -193,7 +193,7 @@
                               <button class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
                         <div class="material_lst_wrap">
-                            <ul id="material_lst"  class="material_lst">
+                            <ul id="material_lst" class="material_lst" name="material_lst">
                                 <li>
                                     <input type="text" class="input_text" placeholder="예) 돼지고기">
                                     <input type="text" class="input_text" placeholder="예) 300g">
@@ -211,7 +211,7 @@
                                 </li>
                             </ul>
                             <div class="lst_plus_wrap">
-                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList()"><i class="ico_add black ico_24"></i></button>
+                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)"><i class="ico_add black ico_24"></i></button>
                             </div>
                         </div>
                     </li>
@@ -255,8 +255,45 @@ $(function(){
     */
 
     $('.mat_innr_plus').on("click", function(){
-        var lstWrapTxt = "<li class='material_inner'><div class='input_group input_area material_tit'><input type='text' id='' class='input_text' value='' placeholder='재료 묶음 이름'><button class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'><i class='ico_del white ico_24'></i>재료/양념 묶음 삭제</button></div><div class='material_lst_wrap'><ul id='material_lst' class='material_lst'><li><input type='text' class='input_text' placeholder='예) 돼지고기'><input type='text' class='input_text' placeholder='예) 300g'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li><li><input type='text' class='input_text' placeholder='예) 양배추'><input type='text' class='input_text' placeholder='예) 1/2개'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li><li><input type='text' class='input_text' placeholder='예) 소금'><input type='text' class='input_text' placeholder='예) 1T'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li></ul><div class='lst_plus_wrap'><button id='addItemButton' class='btn btn_md btn_border btn_icon mat_lst_plus' onclick='addList()'><i class='ico_add black ico_24'></i></button></div></div></li>";
-        console.log();
+        let lstWrapTxt = "<li class='material_inner'>";
+        lstWrapTxt += "<div class='input_group input_area material_tit'>";
+        lstWrapTxt += "<input type='text' id='' class='input_text' value='' placeholder='재료 묶음 이름'>";
+        lstWrapTxt += "<button class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'>";
+        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
+        lstWrapTxt += "재료/양념 묶음 삭제";
+        lstWrapTxt += "</button>";
+        lstWrapTxt += "</div>";
+        lstWrapTxt += "<div class='material_lst_wrap'>";
+        lstWrapTxt += "<ul id='material_lst' class='material_lst'>";
+        lstWrapTxt += "<li>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 돼지고기'>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 300g'>";
+        lstWrapTxt += "<button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
+        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
+        lstWrapTxt += "</button>";
+        lstWrapTxt += "</li>";
+        lstWrapTxt += "<li>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 양배추'>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 1/2개'>";
+        lstWrapTxt += "<button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
+        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
+        lstWrapTxt += "</button>";
+        lstWrapTxt += "</li>";
+        lstWrapTxt += "<li>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 소금'>";
+        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 1T'>";
+        lstWrapTxt += "<button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
+        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
+        lstWrapTxt += "</button>";
+        lstWrapTxt += "</li>";
+        lstWrapTxt += "</ul>";
+        lstWrapTxt += "<div class='lst_plus_wrap'>"
+        lstWrapTxt += "<button id='addItemButton' class='btn btn_md btn_border btn_icon mat_lst_plus' onclick='addList(this)'>";
+        lstWrapTxt += "<i class='ico_add black ico_24'></i>";
+        lstWrapTxt += "</button>";
+        lstWrapTxt += "</div>";
+        lstWrapTxt += "</div>";
+        lstWrapTxt += "</li>";
         $('.material_wrap').append(lstWrapTxt);
     });
 });
@@ -293,8 +330,16 @@ function deleteListWrap(e) {
 
 //재료 추가
 function addList(test) {
-    var text = "<li><input type='text' class='input_text' placeholder='예) 재료명'><input type='text' class='input_text' placeholder='예) 용량'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li>";
-    $('#material_lst').append(text);
+    let text = "<li>";
+    text += "<input type='text' class='input_text' placeholder='예) 재료명'>";
+    text += "<input type='text' class='input_text' placeholder='예) 용량'>";
+    text += "<button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
+    text += "<i class='ico_del white ico_24'></i>";
+    text += "</button>";
+    text += "</li>";
+
+    let mat_lst = $(test).closest(".lst_plus_wrap").closest(".material_lst_wrap").find(".material_lst");
+    mat_lst.append(text);
 }
 </script>
 </html>

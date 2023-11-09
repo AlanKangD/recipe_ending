@@ -190,35 +190,35 @@
                     <li class="material_inner">
                         <div class="input_group input_area material_tit">
                               <input type="text" id="" class="input_text" value="" placeholder="재료 묶음 이름">
-                              <button class="btn btn_sm btn_secondary mat_innr_minus"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
+                              <button class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
                         <div class="material_lst_wrap">
                             <ul id="material_lst"  class="material_lst">
                                 <li>
                                     <input type="text" class="input_text" placeholder="예) 돼지고기">
                                     <input type="text" class="input_text" placeholder="예) 300g">
-                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                                 <li>
                                     <input type="text" class="input_text" placeholder="예) 양배추">
                                     <input type="text" class="input_text" placeholder="예) 1/2개">
-                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                                 <li>
                                     <input type="text" class="input_text" placeholder="예) 소금">
                                     <input type="text" class="input_text" placeholder="예) 1T">
-                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del"><i class="ico_del white ico_24"></i></button>
+                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                             </ul>
                             <div class="lst_plus_wrap">
-                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus"><i class="ico_add black ico_24"></i></button>
+                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList()"><i class="ico_add black ico_24"></i></button>
                             </div>
                         </div>
                     </li>
-                    <li class="material_inner_plus">
-                        <button class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
-                    </li>
                 </ul>
+                <div class="material_inner_plus">
+                    <button class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
+                </div>
             </div>
             <div class="sub_card">
                 <h3>요리순서</h3>
@@ -247,22 +247,22 @@ $(function(){
     });
 
     //20231101 alan 추가
-    $("#addItemButton").on("click", function() {                                        //'#addItemButton'을 클릭했을때 일어나는 일입니다.
-        //var text = "<input type='text' class='input_text' placeholder='예) 양배추'>";   // text 는 ~~~다 라고 정의합니다.
-        //var newItem = $("<li id= 'item2' >").innerHTML = text;                        // newItem 은 ~~~~다 라고 정의합니다.
-        //$("#material_lst").append(newItem);
-        //document.getElementById('item2').append(text);
-
+    $("#addItemButton").on("click", function() {
         var text = "<li><input type='text' class='input_text' placeholder='예) 재료명'><input type='text' class='input_text' placeholder='예) 용량'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li>";
         $(".material_lst").append(text);
     });
 
+    /*
     $(".material_lst_del").on("click", function(){
-        console.log($(this));
         $(this).parent().remove();
     });
+    */
 
-
+    $('.mat_innr_plus').on("click", function(){
+        var lstWrapTxt = "<li class='material_inner'><div class='input_group input_area material_tit'><input type='text' id='' class='input_text' value='' placeholder='재료 묶음 이름'><button class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'><i class='ico_del white ico_24'></i>재료/양념 묶음 삭제</button></div><div class='material_lst_wrap'><ul id='material_lst' class='material_lst'><li><input type='text' class='input_text' placeholder='예) 돼지고기'><input type='text' class='input_text' placeholder='예) 300g'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li><li><input type='text' class='input_text' placeholder='예) 양배추'><input type='text' class='input_text' placeholder='예) 1/2개'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li><li><input type='text' class='input_text' placeholder='예) 소금'><input type='text' class='input_text' placeholder='예) 1T'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li></ul><div class='lst_plus_wrap'><button id='addItemButton' class='btn btn_md btn_border btn_icon mat_lst_plus'><i class='ico_add black ico_24'></i></button></div></div></li>";
+        console.log();
+        $('.material_wrap').append(lstWrapTxt);
+    });
 });
 
 
@@ -289,5 +289,16 @@ function deleteList(obj) {
 
 }
 
+//재료 묶음 삭제
+function deleteListWrap(e) {
+    e.closest('li').remove();
+}
+
+
+//재료 추가
+function addList(test) {
+    var text = "<li><input type='text' class='input_text' placeholder='예) 재료명'><input type='text' class='input_text' placeholder='예) 용량'><button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'><i class='ico_del white ico_24'></i></button></li>";
+    $('#material_lst').append(text);
+}
 </script>
 </html>

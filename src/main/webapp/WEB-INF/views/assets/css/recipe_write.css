@@ -64,3 +64,18 @@ h2{position:absolute; top:15px; left:30px; font-size:22px; font-weight:bold; col
 
 /* 3rd_card */
 .recipe_write .sub_card h3{font-size:20px;}
+.recipe_write .input_area.step_txt{width:450px; height:160px;}
+.step_txt, .step_txt textarea{background:#f5f5f5;}
+.step_lst{margin-top:16px;}
+.step_lst li{display:flex;}
+.step_lst li + li{margin-top:10px;}
+.step_lst li p{width:120px; margin-left:70px; font-size:30px;}
+.step_lst .del_btn_wrap{display:flex; align-items:center;}
+.step_plus_wrap{display:flex; justify-content:center; padding-top:16px; margin-top:16px; border-top:1px solid #d8d8d8;}
+.step_plus.btn_border{color:#222; border:1px solid #222;}
+/*
+.step_pic_wrap{overflow:hidden; height:160px; margin-left:5px; border:1px solid #dbdbdb; border-radius:8px; box-sizing:border-box;}
+.step_pic_add{cursor:pointer;}
+*/
+.step_upload{display:none;}
+.step_pic_wrap{overflow:hidden; width:160px; height:160px; margin-left:5px; border:1px solid #dbdbdb; border-radius:8px; box-sizing:border-box; cursor:pointer;}

@@ -130,8 +130,8 @@ function addStep(test){
     text += "<textarea name='' id='' placeholder='내용을 입력해주세요.'></textarea>";
     text += "</div>";
     text += "<div class='step_pic_wrap'>";
-    text += "<input type='file' class='step_upload' accept='image multiple'>";
-    text += "<img class='step_pic_add' src='/assets/images/add_pic.gif' alt='step 이미지 추가'>";
+    text += "<input type='file' name='step_upload' class='step_upload' accept='image/* multiple'>";
+    text += "<img class='step_pic_add' onclick='clickImage(this)' src='/assets/images/add_pic.gif' alt='step 이미지 추가'>";
     text += "</div>";
     text += "<div class='del_btn_wrap'>";
     text += "<button class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this);'><i class='ico_del white ico_24'></i></button>";
@@ -149,6 +149,40 @@ function addStep(test){
         $('#'+targetId+j+' .stepTitNum').text(j+1);
         //이미지 추가
     }
+}
+let click = null;
+let clickLocation = null;
+
+function clickImage(obj) {
+
+    const nodeCheck = obj.closest('div').childNodes.length;
+
+    clickLocation = obj;
+    console.log('################# obj :: ' + clickLocation);
+
+    if(nodeCheck == 2) {
+        click = obj.closest('div').childNodes[0];
+    } else if (nodeCheck == 5) {
+        click = obj.closest('div').childNodes[1];
+    }
+    console.log('################# click input :: ' + click);
+
+    $(click).trigger('click');
+
+    $(click).on("change", function(event) {
+        console.log('################### 이미지 변화 완료  :: ' + event);
+
+        var file = event.target.files[0];
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+
+            $(obj).attr("src", e.target.result);
+        }
+
+        reader.readAsDataURL(file);
+
+    })
 }
 
 

@@ -230,8 +230,8 @@
                             <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
                         </div>
                         <div class="step_pic_wrap">
-                            <input type="file" class="step_upload" accept="image/* multiple">
-                            <img class="step_pic_add" src="${contextPath}/assets/images/add_pic.gif" alt="step 이미지 추가">
+                            <input type="file" name="step_upload_static" class="step_upload" accept="image/* multiple">
+                            <img class="step_pic_add" onclick="clickImage(this)" src="${contextPath}/assets/images/add_pic.gif" alt="step 이미지 추가">
                         </div>
                         <div class="del_btn_wrap">
                             <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this);"><i class="ico_del white ico_24"></i></button>
@@ -245,10 +245,9 @@
         </main>
     </div>
     <script>
-        /*$(".step_pic_add").on("click", function() {
-            $('.step_upload').trigger('click');
-            //$(this).prev().trigger('click');
-        });
+
+
+        /*
         $("#filelist").on("change", function(event) {
 
             var file = event.target.files[0];

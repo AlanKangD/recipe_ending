@@ -230,7 +230,7 @@
                             <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
                         </div>
                         <div class="step_pic_wrap">
-                            <input type="file" name="step_upload_static" class="step_upload" accept="image/* multiple">
+                            <input type="file" class="step_upload" accept="image/* multiple">
                             <img class="step_pic_add" onclick="clickImage(this)" src="${contextPath}/assets/images/add_pic.gif" alt="step 이미지 추가">
                         </div>
                         <div class="del_btn_wrap">

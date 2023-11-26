@@ -130,7 +130,7 @@ function addStep(test){
     text += "<textarea name='' id='' placeholder='내용을 입력해주세요.'></textarea>";
     text += "</div>";
     text += "<div class='step_pic_wrap'>";
-    text += "<input type='file' name='step_upload' class='step_upload' accept='image/* multiple'>";
+    text += "<input type='file' class='step_upload' accept='image/* multiple'>";
     text += "<img class='step_pic_add' onclick='clickImage(this)' src='/assets/images/add_pic.gif' alt='step 이미지 추가'>";
     text += "</div>";
     text += "<div class='del_btn_wrap'>";

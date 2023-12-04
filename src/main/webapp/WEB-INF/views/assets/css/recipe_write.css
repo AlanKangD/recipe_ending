@@ -79,6 +79,6 @@ h2{position:absolute; top:15px; left:30px; font-size:22px; font-weight:bold; col
 */
 .step_upload{display:none;}
 .step_pic_wrap{overflow:hidden; width:160px; height:160px; margin-left:5px; border:1px solid #dbdbdb; border-radius:8px; box-sizing:border-box; cursor:pointer;}
-.recipe_write .sub_card .btn_group{display:flex; justify-content:center; margin-top:16px;}
+.recipe_write .sub_card .btn_group{display:flex; justify-content:center; padding-top:16px; margin-top:16px; border-top:1px solid #d8d8d8;}
 .recipe_write .sub_card .btn_group .btn_primary{background-color:#444b59 !important; border:1px solid #444b59; font-size:1.8rem;}
 .recipe_write .sub_card .btn_group .btn_normal{background-color:#fff !important; border:1px solid #ccc; font-size:1.8rem;}

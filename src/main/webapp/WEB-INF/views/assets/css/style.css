@@ -3342,8 +3342,8 @@ button {
 }
 .btn_secondary {
   color: #fff !important;
-  border: 1px solid #525252;
-  background-color: #525252;
+  border: 1px solid #444b59;
+  background-color: #444b59;
 }
 .btn_secondary:hover {
   border-color: #1F1F1F;

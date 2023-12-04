@@ -242,6 +242,22 @@
                     <button class="btn btn_md btn_border step_plus" onclick="addStep(this)"><i class="ico_add black ico_24"></i>순서 추가</button>
                 </div>
             </div>
+            <div class="sub_card">
+                <div class="sub_card_inner">
+                    <ul class="reci_cont">
+                        <li>
+                            <p class="cont_tit">요리팁</p>
+                            <div class="input_writing_group input_area">
+                                <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn_group">
+                    <button class="btn btn_md btn_primary">레시피 저장</button>
+                    <button class="btn btn_md btn_normal">취소</button>
+                </div>
+            </div>
         </main>
     </div>
     <script>

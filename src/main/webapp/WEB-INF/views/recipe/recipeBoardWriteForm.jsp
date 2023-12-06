@@ -17,6 +17,7 @@
 <body>
     <div id="wrap">
         <main id="container" class="recipe_write">
+            <form>
             <h2>레시피 등록</h2>
             <div class="sub_card">
                 <div class="sub_card_inner">
@@ -190,7 +191,7 @@
                     <li class="material_inner">
                         <div class="input_group input_area material_tit">
                               <input type="text" id="" class="input_text" value="" placeholder="재료 묶음 이름">
-                              <button class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
+                              <button type="button" class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
                         <div class="material_lst_wrap">
                             <ul id="material_lst" class="material_lst" name="material_lst">
@@ -211,13 +212,13 @@
                                 </li>
                             </ul>
                             <div class="lst_plus_wrap">
-                                <button id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)"><i class="ico_add black ico_24"></i></button>
+                                <button type="button" id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)"><i class="ico_add black ico_24"></i></button>
                             </div>
                         </div>
                     </li>
                 </ul>
                 <div class="material_inner_plus">
-                    <button class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
+                    <button type="button" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
                 </div>
             </div>
             <div class="sub_card order_card">
@@ -239,7 +240,7 @@
                     </li>
                 </ul>
                 <div class="step_plus_wrap">
-                    <button class="btn btn_md btn_border step_plus" onclick="addStep(this)"><i class="ico_add black ico_24"></i>순서 추가</button>
+                    <button type="button" class="btn btn_md btn_border step_plus" onclick="addStep(this)"><i class="ico_add black ico_24"></i>순서 추가</button>
                 </div>
             </div>
             <div class="sub_card">
@@ -254,10 +255,11 @@
                     </ul>
                 </div>
                 <div class="btn_group">
-                    <button class="btn btn_md btn_primary">레시피 저장</button>
-                    <button class="btn btn_md btn_normal">취소</button>
+                    <button type="submit" class="btn btn_md btn_primary">레시피 저장</button>
+                    <button type="button" class="btn btn_md btn_normal">취소</button>
                 </div>
             </div>
+            </form>
         </main>
     </div>
     <script>

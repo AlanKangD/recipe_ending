@@ -92,7 +92,11 @@ public class RecipeBoardController {
 
 		return  "redirect:recipeBoard";
 	}
-	
-	
+
+	@GetMapping("recipe/recipeList.do")
+	public String recipeList() {
+		return "recipe/recipeList";
+	}
+
 	
 }

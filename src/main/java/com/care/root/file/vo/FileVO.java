@@ -1,4 +1,4 @@
-package com.care.root.recipeBoard.vo;
+package com.care.root.file.vo;
 
 import java.sql.Date;
 

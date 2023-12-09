@@ -38,9 +38,8 @@ public class RecipeBoardController {
 	@PostMapping("recipe/recipeBoardWrite")
 	public String recipeBoardOneFile(MultipartHttpServletRequest mul, @RequestParam("multiFile") List<MultipartFile> multiFileList) {
 		// STATIC DB INSERT just one data
-		System.out.println("controller title : " +mul.getParameter("title"));
 		System.out.println("controller recipeExplanation : " +mul.getParameter("recipeExplanation"));
-		MultipartFile file = mul.getFile("image_file_name");
+		MultipartFile file = mul.getFile("imageFile");
 		System.out.println("controller file1 : "  +file.getOriginalFilename());
 		System.out.println("controller getSize : "  +file.getSize());
 		System.out.println("controller getContentType : "  +file.getContentType());
@@ -50,14 +49,14 @@ public class RecipeBoardController {
 
 
 		// NOT STATIC DATA dont no data Amount
-		System.out.println("controller ingredient : " +mul.getParameter("ingredient"));
+		/*System.out.println("controller ingredient : " +mul.getParameter("ingredient"));
 		System.out.println("controller ingredientAmount : " +mul.getParameter("ingredientAmount"));
 
 		System.out.println("controller content : " +mul.getParameter("content"));
 		System.out.println("controller multiFileList : " + multiFileList);
 		for(int i=0; i < multiFileList.size(); i++) {
 			System.out.println("multifile :: " + i +"번째 : " +  multiFileList.get(i).getOriginalFilename());
-		}
+		}*/
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 

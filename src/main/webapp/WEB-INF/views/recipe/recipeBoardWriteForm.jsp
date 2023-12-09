@@ -17,7 +17,7 @@
 <body>
     <div id="wrap">
         <main id="container" class="recipe_write">
-            <form>
+            <form method="post" action="${contextPath }/recipe/recipeBoardWrite" enctype="multipart/form-data">
             <h2>레시피 등록</h2>
             <div class="sub_card">
                 <div class="sub_card_inner">
@@ -25,16 +25,16 @@
                         <li>
                             <p class="cont_tit">레시피 제목</p>
                             <div class="input_group input_area">
-                                  <input type="text" id="" class="input_text" value="" placeholder="내용을 입력해 주세요.">
+                                  <input type="text" name="recipeName" class="input_text" value="" placeholder="내용을 입력해 주세요.">
                             </div>
                         </li>
                         <li>
                             <p class="cont_tit">요리 소개</p>
                             <div class="input_writing_group input_area">
-                                  <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
+                                  <textarea name="recipeExplanation" placeholder="내용을 입력해주세요."></textarea>
                             </div>
                         </li>
-                        <li>
+                        <%--<li>
                             <p class="cont_tit">카테고리</p>
                             <div class="select_wrap">
                                 <div class="select_box tbl_select_box">
@@ -123,7 +123,7 @@
                                       </select>
                                 </div>
                             </div>
-                        </li>
+                        </li>--%>
                         <li>
                             <p class="cont_tit">요리정보</p>
                             <div class="select_wrap cook_inf">
@@ -160,7 +160,7 @@
                                           </select>
                                     </div>
                                 </div>
-                                <div class="cook_inf_wrap">
+                                <%--<div class="cook_inf_wrap">
                                     <span class="select_box_label">난이도</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
@@ -173,19 +173,19 @@
                                                 <option value="">신의 경지</option>
                                           </select>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                         </li>
                     </ul>
                     <div id="divMainPhotoUpload" class="">
                         <div id="divMainPhotoBox" class="img_upload_wrap" is_over="0">
-                            <input type="file" id="imageFile" style="display:none;">
+                            <input type="file" id="imageFile" name="imageFile" style="display:none;">
                             <img id="preview" src="${contextPath}/assets/images/pic_upload.gif" style="cursor: pointer;" alt="이미지 업로드 사진" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="sub_card">
+            <%--<div class="sub_card">
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
                 <ul class="material_wrap">
                     <li class="material_inner">
@@ -242,14 +242,14 @@
                 <div class="step_plus_wrap">
                     <button type="button" class="btn btn_md btn_border step_plus" onclick="addStep(this)"><i class="ico_add black ico_24"></i>순서 추가</button>
                 </div>
-            </div>
+            </div>--%>
             <div class="sub_card">
                 <div class="sub_card_inner">
                     <ul class="reci_cont">
                         <li>
                             <p class="cont_tit">요리팁</p>
                             <div class="input_writing_group input_area">
-                                <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
+                                <textarea name="recipeDetailTip" placeholder="내용을 입력해주세요."></textarea>
                             </div>
                         </li>
                     </ul>

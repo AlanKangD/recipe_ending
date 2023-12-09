@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Primary
 @Service
 public class KakaoLoginServiceImpl implements KakaoLoginService{
-	//@Autowired KakaoLoginMapper mapper;
+	@Autowired KakaoLoginMapper mapper;
 	
 	@Override
 	public void registerKakao(Map<String, Object> dto, HttpSession session) {

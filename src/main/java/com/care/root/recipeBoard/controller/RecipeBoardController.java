@@ -42,13 +42,7 @@ public class RecipeBoardController {
 	}
 	//@Transactional
 	@PostMapping(value = "recipe/recipeBoardWrite")
-	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
-									 @RequestParam("multiFile") List<MultipartFile> multiFileList,
-									 @RequestParam("recipeDetailContent") List<?> recipeDetailContent,
-									 @RequestParam("recipeDetailTip") List<?> recipeDetailTip,
-									 @RequestParam("recipeEtcIngredient") List<?> recipeEtcIngredient,
-									 @RequestParam("recipeEtcQuantity") List<?> recipeEtcQuantity
-									 ) {
+	public String recipeBoardOneFile(MultipartHttpServletRequest mul) {
 
 		// STATIC DB INSERT just one list data
 		System.out.println("controller title : " +mul.getParameter("recipeName"));
@@ -73,7 +67,7 @@ public class RecipeBoardController {
 
 
 		///////////// secound step start /////////
-		System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
+		/*System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
 		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
 
 		for(int i=0; i < recipeEtcIngredient.size(); i++) {
@@ -106,7 +100,7 @@ public class RecipeBoardController {
 
 		System.out.println("recipeDetailContent" + recipeDetailContent);
 		System.out.println("recipeDetailTip" + recipeDetailTip);
-
+*/
 		// recipe 재료 영역 등록 start   recipeEtcIngredient recipeEtcQuantity
 		/*List test = (List) mul.getParameterNames();
 		System.out.println("################## :: " + test);*/

@@ -131,7 +131,7 @@
                                     <span class="select_box_label">인원</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
-                                          <select class="select_box_value" name="" id="">
+                                          <select class="select_box_value" name="people">
                                                 <option value="">인원</option>
                                                 <option value="">1인분</option>
                                                 <option value="">2인분</option>
@@ -146,7 +146,7 @@
                                     <span class="select_box_label">시간</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
-                                          <select class="select_box_value" name="" id="">
+                                          <select class="select_box_value" name="time">
                                                 <option value="">시간</option>
                                                 <option value="">5분이내</option>
                                                 <option value="">10분이내</option>

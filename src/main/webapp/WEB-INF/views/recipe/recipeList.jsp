@@ -19,10 +19,29 @@
 <script src="${contextPath}/assets/js/variable_func.js"></script>
 </head>
 <body>
-    <div id="wrap" class="wrapper_bo"> <!-- .wrapper_bo = BO레이아웃 관련, -->
+    <div id="wrap" class="wrapper_bo recipe_lst"> <!-- .wrapper_bo = BO레이아웃 관련, .recipe_lst = 레시피 목록 -->
         <h2>레시피 목록</h2>
         <main id="container">
             <div class="cont_card">
+                <div class="tbl_utill">
+                    <p class="tbl_info">검색결과 <span>10</span>건</p>
+                    <div class="tbl_srch">
+                        <div class="select_box tbl_select_box">
+                              <span class="select_box_arr"></span>
+                              <select class="select_box_value" name="" id="">
+                                    <option value="">카테고리</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                    <option value="">Option 3</option>
+                                    <option value="">Option 4</option>
+                              </select>
+                        </div>
+                        <div class="input_group">
+                              <input type="text" id="" class="input_text" value="" placeholder="내용을 입력해 주세요.">
+                              <button class="btn btn_sm btn_secondary btn_icon"><i class="ico_zoom white ico_24"></i></button>
+                        </div>
+                    </div>
+                </div>
                 <table class="tbl tbl_line reci_lst_tbl">
                     <caption></caption>
                     <colgroup>
@@ -48,12 +67,12 @@
                     <tbody class="tbl_divider">
                         <tr>
                             <td>1</td>
-                            <td><a href="${contextPath}/recipe/recipeIndex.do" class="title">둘이 먹다 셋이 죽어도 모를 정도의 기절초풍 김치전 레시피</a></td>
+                            <td><a class="title" href="${contextPath}/recipe/index.do">둘이 먹다 셋이 죽어도 모를 정도의 기절초풍 김치전 레시피</a></td>
                             <td>밑반찬</td>
                             <td>2023.08.24</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td class="lst_del"><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -62,7 +81,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -71,7 +90,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -80,7 +99,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -89,7 +108,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -98,7 +117,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>7</td>
@@ -107,7 +126,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>8</td>
@@ -116,7 +135,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>9</td>
@@ -125,7 +144,7 @@
                             <td>2023.12.28</td>
                             <td>내용</td>
                             <td>내용</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                         <tr>
                             <td>10</td>
@@ -134,18 +153,27 @@
                             <td>2023.12.28</td>
                             <td>1,257,894,445,258</td>
                             <td>158,250</td>
-                            <td>내용</td>
+                            <td><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="page_wrapper">
+                    <div class="pagination" aria-label="Page Navigation">
+                        <a href="javascript:void(0);" class="arr prev"><span>이전</span></a>
+                        <a href="javascript:void(0);" class="page_link active"><span>1</span></a>
+                        <a href="javascript:void(0);" class="page_link"><span>2</span></a>
+                        <a href="javascript:void(0);" class="page_link"><span>3</span></a>
+                        <a href="javascript:void(0);" class="page_link"><span>4</span></a>
+                        <a href="javascript:void(0);" class="page_link"><span>5</span></a>
+                        <a href="javascript:void(0);" class="arr next"><span>다음</span></a>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
     <script>
-    // 참고한 사이트 : https://xetown.com/tips/1152143
-        $('table tr td').not('.check').on('click', function(){
+        $('table tr td').on('click', function(e){
             location.href= $(this).siblings('.title').children('a').attr('href');
-            return false;
         });
     </script>
 </body>

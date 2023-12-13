@@ -1389,8 +1389,11 @@ caption {
 *[class*=ico_].white::before {
   background-color: #fff !important;
 }
-*[class*=ico_].primary::before, *[class*=ico_].blue::before {
+*[class*=ico_].blue::before {
   background-color: #0f62fe !important;
+}
+*[class*=ico_].primary::before {
+  background-color: #444b59 !important;
 }
 
 /* 아이콘 사이즈 클래스 */
@@ -3366,6 +3369,11 @@ button {
 .btn_border:hover {
   background-color: rgba(15, 98, 254, 0.051);
 }
+.btn_primary_border{
+  color: #444b59;
+  border: 1px solid #444b59;
+  background-color: #fff;
+}
 .btn_green {
   color: #fff !important;
   border: 1px solid #26A769;
@@ -5019,8 +5027,8 @@ div.dataTables_wrapper .btn:focus {
   margin-right: 0;
 }
 .pagination a.active:not(.arr) {
-  border-color: #0f62fe;
-  background-color: #0f62fe;
+  border-color: #444b59;
+  background-color: #444b59;
   cursor: default;
 }
 .pagination a.active:not(.arr) span {

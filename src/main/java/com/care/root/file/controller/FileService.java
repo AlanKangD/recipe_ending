@@ -4,6 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
 
-    public void fileProcess(MultipartFile file);
+    public String fileProcess(MultipartFile file);
 
 }

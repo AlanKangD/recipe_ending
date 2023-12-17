@@ -15,6 +15,7 @@
 <script src="${contextPath}/assets/js/variable_func.js"></script>
 </head>
 <body>
+
     <div id="wrap">
         <main id="container" class="recipe_write">
             <form method="post" action="${contextPath }/recipe/recipeBoardWrite" enctype="multipart/form-data">
@@ -25,7 +26,7 @@
                         <li>
                             <p class="cont_tit">레시피 제목</p>
                             <div class="input_group input_area">
-                                  <input type="text" name="recipeName" class="input_text" value="" placeholder="내용을 입력해 주세요.">
+                                  <input type="text" name="recipeName" class="input_text" placeholder="내용을 입력해 주세요.">
                             </div>
                         </li>
                         <li>
@@ -34,35 +35,23 @@
                                   <textarea name="recipeExplanation" placeholder="내용을 입력해주세요."></textarea>
                             </div>
                         </li>
-                        <%--<li>
+                        <li>
                             <p class="cont_tit">카테고리</p>
                             <div class="select_wrap">
                                 <div class="select_box tbl_select_box">
                                       <span class="select_box_arr"></span>
-                                      <select class="select_box_value" name="" id="">
-                                            <option value="">종류별</option>
-                                            <option value="">밑반찬</option>
-                                            <option value="">메인반찬</option>
-                                            <option value="">국/탕</option>
-                                            <option value="">찌개</option>
-                                            <option value="">디저트</option>
-                                            <option value="">면/만두</option>
-                                            <option value="">밥/죽/떡</option>
-                                            <option value="">퓨전</option>
-                                            <option value="">김치/젓갈/장류</option>
-                                            <option value="">양념/소스/잼</option>
-                                            <option value="">양식</option>
-                                            <option value="">샐러드</option>
-                                            <option value="">스프</option>
-                                            <option value="">빵</option>
-                                            <option value="">과자</option>
-                                            <option value="">차/음료/술</option>
-                                            <option value="">기타</option>
+                                      <select class="select_box_value" name="recipeType">
+                                            <option value="null">종류별</option>
+                                            <option value="0">한식</option>
+                                            <option value="1">중식</option>
+                                            <option value="2">양식</option>
+                                            <option value="3">일식</option>
+                                            <option value="4">NEW</option>
                                       </select>
                                 </div>
-                                <div class="select_box tbl_select_box">
+                                <%--<div class="select_box tbl_select_box">
                                       <span class="select_box_arr"></span>
-                                      <select class="select_box_value" name="" id="">
+                                      <select class="select_box_value" name="">
                                             <option value="">상황별</option>
                                             <option value="">일상</option>
                                             <option value="">초스피드</option>
@@ -82,7 +71,7 @@
                                 </div>
                                 <div class="select_box tbl_select_box">
                                       <span class="select_box_arr"></span>
-                                      <select class="select_box_value" name="" id="">
+                                      <select class="select_box_value" name="">
                                             <option value="">방법별</option>
                                             <option value="">볶음</option>
                                             <option value="">끓이기</option>
@@ -99,10 +88,10 @@
                                             <option value="">회</option>
                                             <option value="">기타</option>
                                       </select>
-                                </div>
-                                <div class="select_box tbl_select_box">
+                                </div>--%>
+                                <%--<div class="select_box tbl_select_box">
                                       <span class="select_box_arr"></span>
-                                      <select class="select_box_value" name="" id="">
+                                      <select class="select_box_value" name="">
                                             <option value="">재료별</option>
                                             <option value="">소고기</option>
                                             <option value="">돼지고기</option>
@@ -121,9 +110,9 @@
                                             <option value="">곡류</option>
                                             <option value="">기타</option>
                                       </select>
-                                </div>
+                                </div>--%>
                             </div>
-                        </li>--%>
+                        </li>
                         <li>
                             <p class="cont_tit">요리정보</p>
                             <div class="select_wrap cook_inf">
@@ -131,14 +120,14 @@
                                     <span class="select_box_label">인원</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
-                                          <select class="select_box_value" name="people">
-                                                <option value="">인원</option>
-                                                <option value="">1인분</option>
-                                                <option value="">2인분</option>
-                                                <option value="">3인분</option>
-                                                <option value="">4인분</option>
-                                                <option value="">5인분</option>
-                                                <option value="">6인분 이상</option>
+                                          <select class="select_box_value" name="recipePerson">
+                                                <option value="null">인원</option>
+                                                <option value="1">1인분</option>
+                                                <option value="2">2인분</option>
+                                                <option value="3">3인분</option>
+                                                <option value="4">4인분</option>
+                                                <option value="5">5인분</option>
+                                                <option value="6">6인분 이상</option>
                                           </select>
                                     </div>
                                 </div>
@@ -146,16 +135,15 @@
                                     <span class="select_box_label">시간</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
-                                          <select class="select_box_value" name="time">
-                                                <option value="">시간</option>
-                                                <option value="">5분이내</option>
-                                                <option value="">10분이내</option>
-                                                <option value="">15분이내</option>
-                                                <option value="">20분이내</option>
-                                                <option value="">30분이내</option>
-                                                <option value="">60분이내</option>
-                                                <option value="">90분이내</option>
-                                                <option value="">2시간이내</option>
+                                          <select class="select_box_value" name="recipeTime">
+                                                <option value=null">시간</option>
+                                                <option value="5">5분이내</option>
+                                                <option value="10">10분이내</option>
+                                                <option value="15">15분이내</option>
+                                                <option value="20">20분이내</option>
+                                                <option value="30">30분이내</option>
+                                                <option value="60">60분이내</option>
+                                                <option value="90">90분이내</option>
                                                 <option value="">2시간이상</option>
                                           </select>
                                     </div>
@@ -185,29 +173,29 @@
                     </div>
                 </div>
             </div>
-            <%--<div class="sub_card">
+            <div class="sub_card">
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
                 <ul class="material_wrap">
                     <li class="material_inner">
                         <div class="input_group input_area material_tit">
-                              <input type="text" id="" class="input_text" value="" placeholder="재료 묶음 이름">
+                              <input type="text" name="recipeEtc" class="input_text" value="" placeholder="재료 묶음 이름">
                               <button type="button" class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
                         </div>
                         <div class="material_lst_wrap">
                             <ul id="material_lst" class="material_lst" name="material_lst">
                                 <li>
-                                    <input type="text" class="input_text" placeholder="예) 돼지고기">
-                                    <input type="text" class="input_text" placeholder="예) 300g">
+                                    <input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 돼지고기">
+                                    <input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 300g">
                                     <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                                 <li>
-                                    <input type="text" class="input_text" placeholder="예) 양배추">
-                                    <input type="text" class="input_text" placeholder="예) 1/2개">
+                                    <input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 양배추">
+                                    <input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1/2개">
                                     <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                                 <li>
-                                    <input type="text" class="input_text" placeholder="예) 소금">
-                                    <input type="text" class="input_text" placeholder="예) 1T">
+                                    <input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 소금">
+                                    <input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1T">
                                     <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
                                 </li>
                             </ul>
@@ -221,7 +209,7 @@
                     <button type="button" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
                 </div>
             </div>
-            <div class="sub_card order_card">
+            <%--<div class="sub_card order_card">
                 <h3>요리순서</h3>
                 <div class="card_desc mt_16"><i class="ico_info_circle ico_24"></i><p>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</p></div>
                 <ul class="step_lst">
@@ -249,7 +237,7 @@
                         <li>
                             <p class="cont_tit">요리팁</p>
                             <div class="input_writing_group input_area">
-                                <textarea name="recipeDetailTip" placeholder="내용을 입력해주세요."></textarea>
+                                <textarea name="recipeTip" placeholder="내용을 입력해주세요."></textarea>
                             </div>
                         </li>
                     </ul>
@@ -262,62 +250,5 @@
             </form>
         </main>
     </div>
-    <script>
-
-
-        /*
-        $("#filelist").on("change", function(event) {
-
-            var file = event.target.files[0];
-
-            var reader = new FileReader();
-            reader.onload = function(e) {
-
-                $(".step_pic_add").attr("src", e.target.result);
-            }
-
-            reader.readAsDataURL(file);
-        });
-        */
-        /*
-        function getStepImage(e) {
-            const files = e.currentTarget.files;
-
-            //파일 유형 검사
-            [...files].forEach(file => {
-                if (!file.type.match("image/.*")){
-                    alert('이미지 파일만 업로드가 가능합니다.');
-                    return;
-                }
-            })
-
-            //파일 갯수 검사
-            if([...files].length >= 2){
-                alert('이미지는 한 장만 업로드가 가능합니다.');
-                return;
-            }
-        }
-
-        const stepUpload = document.querySelector('.step_upload');
-        const picUpload = document.querySelector('.step_pic_wrap');
-
-        picUpload.addEventListener('click', () => stepUpload.click());
-        stepUpload.addEventListener('change', getStepImage);
-        */
-        /*
-        function readURL{
-            if(input.files && input.files[0]) {
-                var reader = new fileReader();
-                reader.onload = function(e){
-                    $('.step_pic_add').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $('.step_upload').change(function(){
-            readURL(this);
-        });
-        */
-    </script>
 </body>
 </html>

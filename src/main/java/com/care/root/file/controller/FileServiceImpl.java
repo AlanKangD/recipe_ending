@@ -23,7 +23,7 @@ public class FileServiceImpl implements FileService{
     public static final String IMAGE_REPO = "/Users/alankang/Documents/images/imagerepo";
 
     @Override
-    public void fileProcess(MultipartFile file) {
+    public String fileProcess(MultipartFile file) {
         // MultipartFile file = mul.getFile("file");
 
         String randomCode = generateRandomCode(10);
@@ -54,6 +54,8 @@ public class FileServiceImpl implements FileService{
         vo.setFileType(file.getContentType());
 
         fileInputMapper.insertFileDB(vo);
+
+        return sysFileName;
 
     }
 

@@ -12,8 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class RecipeBoardController {
@@ -44,32 +43,65 @@ public class RecipeBoardController {
 	@PostMapping(value = "recipe/recipeBoardWrite")
 	public String recipeBoardOneFile(MultipartHttpServletRequest mul) {
 
-		// STATIC DB INSERT just one list data
-		System.out.println("controller title : " +mul.getParameter("recipeName"));
-		System.out.println("controller recipeType : " +mul.getParameter("recipeType"));
-		System.out.println("controller recipeExplanation : " +mul.getParameter("recipeExplanation"));
+		RecipeVO recipeVO = new RecipeVO();
 
+		////////////// first Step start //////////////
+		// Enumeration 획득
+		Enumeration<String> enu = mul.getParameterNames();
 
-		MultipartFile file = mul.getFile("image_file_name");
-		System.out.println("controller file1 : "  + file.getOriginalFilename());
-		System.out.println("controller getSize : "  +file.getSize());
-		System.out.println("controller getContentType : "  +file.getContentType());
+		Map map = new HashMap();
 
-		RecipeVO RecipeVO = new RecipeVO();
-		RecipeVO.setRecipeName(mul.getParameter("recipeName"));
-		RecipeVO.setRecipeExplanation(mul.getParameter("recipeExplanation"));
-		RecipeVO.setRecipeType(mul.getParameter("recipeType"));
-		RecipeVO.setRecipeFileName(file.getOriginalFilename());
-		//fileService.fileProcess(mul.getFile("image_file_name"));
-		//rs.insertFisrtStep(RecipeVO);
+		while(enu.hasMoreElements()) {
+			String name = (String)enu.nextElement();
+			String value = mul.getParameter(name);
+			map.put(name, value);
+		}
+
+		if(mul.getFile("imageFile") != null) {
+			//String changeFileName = fileService.fileProcess(mul.getFile("imageFile"));
+			//recipeVO.setRecipeFileName(changeFileName);   // 파일 이름 변환 오리지널 이름은 파일 테입르에서 조회가능
+		}
+
+		if (map != null) {  // 1 Step 레시피 등록
+			recipeVO.setRecipeName((String) map.get("recipeName"));
+			recipeVO.setRecipeExplanation((String) map.get("recipeExplanation"));
+			recipeVO.setRecipeType((String) map.get("recipeType"));
+			recipeVO.setRecipeTip((String) map.get("recipeTip"));
+			recipeVO.setRecipePerson((String) map.get("recipePerson"));
+			recipeVO.setRecipeTime((String) map.get("recipeTime"));
+			//rs.insertFisrtStep(recipeVO);
+		}
 
 		//////////////first step ok //////////////
 
 
 		///////////// secound step start /////////
-		/*System.out.println("recipeEtcIngredient" + recipeEtcIngredient);
-		System.out.println("recipeEtcQuantity" + recipeEtcQuantity);
 
+		System.out.println("recipeEtcIngredient" );
+		System.out.println("recipeEtcQuantity" );
+
+		String[] recipeEtc =  mul.getParameterValues("recipeEtc");
+
+		String[] ingredient = mul.getParameterValues("recipeEtcIngredient");
+		String[] quantity = mul.getParameterValues("recipeEtcQuantity");
+		int checkPoint = 0;
+		for(int i=0; i < ingredient.length; i++) {
+			if(ingredient[0].equals("startPoint")){  //startPoint 가 시작되면 추가 재료영역이 있는 flag값
+				checkPoint++;
+				continue;
+			}
+			recipeVO.setRecipeEtc(recipeEtc[checkPoint]);
+			recipeVO.setRecipeEtcIngredient(ingredient[i]);
+			List result = splitCheckType(quantity[i]);
+			recipeVO.setRecipeEtcQuantity((String) result.get(0));
+			recipeVO.setRecipeEtcType((String) result.get(1));
+
+			rs.insertSecountStep(recipeVO);
+		}
+
+		///////////// secound step end /////////
+
+		/*
 		for(int i=0; i < recipeEtcIngredient.size(); i++) {
 			List checkSplit = new ArrayList();
 			String splitText = (String) recipeEtcQuantity.get(i);
@@ -112,46 +144,31 @@ ta
 
 		//////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 		//mapper.insertContent(contentVO);
-		if(file.getSize() != 0  ) {
-			//File saveFile = new File(IMAGE_REPO + "/" + file.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
-/*
-			File saveFile1 = new File(IMAGE_REPO + "/" + file1.getOriginalFilename()); //파일의 최종 경로라고 생각하면됩니다.
-*/
-			FileVO fileVO  = new FileVO();
-			/*try {
-			*//*	file.transferTo(saveFile); //파일을 저장하는 명령문
-				file1.transferTo(saveFile1); //파일을 저장하는 명령문
-				file2.transferTo(saveFile2); //파일을 저장하는 명령문
-				fileVO.setFileseq(1);
-				fileVO.setFile1(file.getOriginalFilename());
-				fileVO.setFile2(file1.getOriginalFilename());
-				fileVO.setFile3(file2.getOriginalFilename());*//*
-
-			//	mapper.insertFile(fileVO);
-			} catch (IllegalStateException) {
-
-			}
-		}else {
-
-		}
-		*/
-		}
 
 		return  "redirect:recipeBoard";
 	}
 
-	// g , T , t , ml , l , kg ,
-	/*public List splitCheckText(String text) {
-		List list = new ArrayList();
-		List whiteList =
 
 
-	}*/
+	@RequestMapping("recipe/recipeList.do")
+	public String recipeList() {
+		return "recipe/recipeList";
+	}
 
-	
-	
+
+	// g , T , t , ml , l , kg
+	public List splitCheckType(String text) {
+		List resultList = new ArrayList();
+		String[] whiteList = {"g","T" ,"t" ,"ml" ,"L" ,"kg", "개"};
+		for(int i=0; i < whiteList.length; i++) {
+			if(text.indexOf(whiteList[i]) > 0){
+				String substring = text.substring(0, text.indexOf(whiteList[i]));
+				resultList.add(substring);
+				resultList.add(whiteList[i]);
+				return resultList;
+			};
+		}
+		return null;
+	}
 }

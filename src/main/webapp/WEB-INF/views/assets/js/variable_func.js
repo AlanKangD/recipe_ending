@@ -27,8 +27,10 @@ $(function(){
 
     $('.mat_innr_plus').on("click", function(){
         let lstWrapTxt = "<li class='material_inner'>";
+        lstWrapTxt += "<input type='hidden' name='recipeEtcIngredient' value='startPoint'>";
+        lstWrapTxt += "<input type='hidden' name='recipeEtcQuantity' value='startPoint'>";
         lstWrapTxt += "<div class='input_group input_area material_tit'>";
-        lstWrapTxt += "<input type='text' id='' class='input_text' value='' placeholder='재료 묶음 이름'>";
+        lstWrapTxt += "<input type='text' name='recipeEtc' class='input_text' value='' placeholder='재료 묶음 이름'>";
         lstWrapTxt += "<button type='button' class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'>";
         lstWrapTxt += "<i class='ico_del white ico_24'></i>";
         lstWrapTxt += "재료/양념 묶음 삭제";
@@ -37,22 +39,22 @@ $(function(){
         lstWrapTxt += "<div class='material_lst_wrap'>";
         lstWrapTxt += "<ul id='material_lst' class='material_lst'>";
         lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 돼지고기'>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 300g'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 돼지고기'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 300g'>";
         lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
         lstWrapTxt += "<i class='ico_del white ico_24'></i>";
         lstWrapTxt += "</button>";
         lstWrapTxt += "</li>";
         lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 양배추'>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 1/2개'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 양배추'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1/2개'>";
         lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
         lstWrapTxt += "<i class='ico_del white ico_24'></i>";
         lstWrapTxt += "</button>";
         lstWrapTxt += "</li>";
         lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 소금'>";
-        lstWrapTxt += "<input type='text' class='input_text' placeholder='예) 1T'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 소금'>";
+        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1T'>";
         lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
         lstWrapTxt += "<i class='ico_del white ico_24'></i>";
         lstWrapTxt += "</button>";
@@ -104,8 +106,8 @@ function deleteListWrap(e) {
 //재료 추가
 function addList(test) {
     let text = "<li>";
-    text += "<input type='text' class='input_text' placeholder='예) 재료명'>";
-    text += "<input type='text' class='input_text' placeholder='예) 용량'>";
+    text += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 재료명'>";
+    text += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 용량'>";
     text += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
     text += "<i class='ico_del white ico_24'></i>";
     text += "</button>";

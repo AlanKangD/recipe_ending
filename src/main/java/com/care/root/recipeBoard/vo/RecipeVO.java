@@ -22,6 +22,8 @@ public class RecipeVO {
 
     private String recipeDel;       // 레시피 삭제여부
 
+
+
     //////////////////////////////
 
     // Recipe Detail
@@ -32,9 +34,15 @@ public class RecipeVO {
 
     private String recipeDetailImageName; // 레시피 이미지 이름
 
-    private String recipeDetailTip;       // 영엵 레시피 Tip
+    private String recipeTip;  // 레시피 팁
 
     private String recipeDetailDt;        // 레시피 등록일
+
+    private String recipePerson;  // 레시피 인분
+
+    private String recipeTime;    // 레시피 시간
+
+
 
     //////////////////////////////
 
@@ -50,8 +58,42 @@ public class RecipeVO {
 
     private Date recipeEtcDt;           // 레시피 재료 등록일
 
+    private String recipeEtc;            // 레시피 재료 대분류
+
     //////////////////////////////
 
+
+    public String getRecipeEtc() {
+        return recipeEtc;
+    }
+
+    public void setRecipeEtc(String recipeEtc) {
+        this.recipeEtc = recipeEtc;
+    }
+
+    public String getRecipeTime() {
+        return recipeTime;
+    }
+
+    public void setRecipeTime(String recipeTime) {
+        this.recipeTime = recipeTime;
+    }
+
+    public String getRecipePerson() {
+        return recipePerson;
+    }
+
+    public void setRecipePerson(String recipePerson) {
+        this.recipePerson = recipePerson;
+    }
+
+    public String getRecipeTip() {
+        return recipeTip;
+    }
+
+    public void setRecipeTip(String recipeTip) {
+        this.recipeTip = recipeTip;
+    }
 
     public String getRecipeFileName() {
         return recipeFileName;
@@ -139,14 +181,6 @@ public class RecipeVO {
 
     public void setRecipeDetailImageName(String recipeDetailImageName) {
         this.recipeDetailImageName = recipeDetailImageName;
-    }
-
-    public String getRecipeDetailTip() {
-        return recipeDetailTip;
-    }
-
-    public void setRecipeDetailTip(String recipeDetailTip) {
-        this.recipeDetailTip = recipeDetailTip;
     }
 
     public String getRecipeDetailDt() {

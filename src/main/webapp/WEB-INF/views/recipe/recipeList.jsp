@@ -172,9 +172,9 @@
         </main>
     </div>
     <script>
-        $('table tr td').on('click', function(e){
+      /*  $('table tr td').on('click', function(e){
             location.href= $(this).siblings('.title').children('a').attr('href');
-        });
+        });*/
     </script>
 </body>
 </html>

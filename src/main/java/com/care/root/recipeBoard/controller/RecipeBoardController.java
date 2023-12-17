@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 
 import java.io.File;
 import java.util.*;
@@ -41,7 +42,8 @@ public class RecipeBoardController {
 	}
 	//@Transactional
 	@PostMapping(value = "recipe/recipeBoardWrite")
-	public String recipeBoardOneFile(MultipartHttpServletRequest mul) {
+	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
+									 @RequestParam("stepFile") List<MultipartFile> multiFileList) {
 
 		RecipeVO recipeVO = new RecipeVO();
 
@@ -96,54 +98,23 @@ public class RecipeBoardController {
 			rs.insertSecountStep(recipeVO);
 		}
 
-		///////////// secound step end /////////
-
-		/*
-		for(int i=0; i < recipeEtcIngredient.size(); i++) {
-			List checkSplit = new ArrayList();
-			String splitText = (String) recipeEtcQuantity.get(i);
-			System.out.println("############3 " + splitText);
-
-			RecipeVO RecipeEtcVO = new RecipeVO();
-			RecipeEtcVO.setRecipeEtcIngredient((String) recipeEtcIngredient.get(i));
-			RecipeEtcVO.setRecipeEtcQuantity((String) recipeEtcQuantity.get(i));
+		///////////// secound step start /////////
 
 
-			//rs.insertSecountStep(RecipeEtcVO);
-
-		}
-
-		///////////////secount step end /////////////
-
-
-
-		// NOT STATIC DATA dont no data Amount
-		System.out.println("controller ingredient : " +mul.getParameter("ingredient"));
-		System.out.println("controller ingredientAmount : " +mul.getParameter("ingredientAmount"));
-
-		System.out.println("controller content : " +mul.getParameter("content"));
-		System.out.println("controller multiFileList : " + multiFileList);
+		///////////// third step start /////////
+		System.out.println("recipeDetailContent" + multiFileList);
+		String[] recipeContent =  mul.getParameterValues("recipeContent");
 		for(int i=0; i < multiFileList.size(); i++) {
-			System.out.println("multifile :: " + i +"번째 : " +  multiFileList.get(i).getOriginalFilename());
+			String changeFileName = fileService.fileProcess(multiFileList.get(i));
+			recipeVO.setRecipeFileName(changeFileName);
+			recipeVO.setRecipeDetailContent(recipeContent[i]);
+			recipeVO.setRecipeDetailStep(i+1);
+			rs.insertThirdStep(recipeVO);
+			// step 을 어떻게 구분할것인지 고민해봐야 함
 		}
+		///////////// third end start /////////
 
-		System.out.println("recipeDetailContent" + recipeDetailContent);
-		System.out.println("recipeDetailTip" + recipeDetailTip);
-*/
-		// recipe 재료 영역 등록 start   recipeEtcIngredient recipeEtcQuantity
-		/*List test = (List) mul.getParameterNames();
-		System.out.println("################## :: " + test);*/
-
-		/*List recipeEtcIngredienttest = mul.get  recipeEtcQuantity -> {String[2]@6996} ["재료 수량1", "재료 수량2"]
-ta
-		for(int i = 0; i < )*/
-
-
-		//////////////////////////////////////////////////////////////////////////////////////////
-
-		//mapper.insertContent(contentVO);
-
-		return  "redirect:recipeBoard";
+		return  "redirect:recipeList.do";
 	}
 
 

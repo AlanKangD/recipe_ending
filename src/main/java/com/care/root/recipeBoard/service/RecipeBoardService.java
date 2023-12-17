@@ -8,4 +8,6 @@ public interface RecipeBoardService {
 	public void insertFisrtStep(RecipeVO vo);
 
 	public void insertSecountStep(RecipeVO vo);
+
+	public void insertThirdStep(RecipeVO vo);
 }

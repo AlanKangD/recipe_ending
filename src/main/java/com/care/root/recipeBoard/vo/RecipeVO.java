@@ -30,6 +30,8 @@ public class RecipeVO {
 
     private int  recipeDetailNo;    // 레시피 상세 No
 
+    private int  recipeDetailStep;    // 레시피 순서
+
     private String recipeDetailContent;  // 레시피 내용
 
     private String recipeDetailImageName; // 레시피 이미지 이름
@@ -62,6 +64,14 @@ public class RecipeVO {
 
     //////////////////////////////
 
+
+    public int getRecipeDetailStep() {
+        return recipeDetailStep;
+    }
+
+    public void setRecipeDetailStep(int recipeDetailStep) {
+        this.recipeDetailStep = recipeDetailStep;
+    }
 
     public String getRecipeEtc() {
         return recipeEtc;

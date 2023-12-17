@@ -1,3 +1,4 @@
+var fileCnt = 1;
 $(function(){
 
     $("#preview").on("click", function() {
@@ -129,10 +130,10 @@ function addStep(obj){
     let text = "<li>";
     text += "<p>Step<span class='stepTitNum'>1</span></p>";
     text += "<div class='input_writing_group input_area step_txt'>";
-    text += "<textarea name='' id='' placeholder='내용을 입력해주세요.'></textarea>";
+    text += "<textarea name='recipeContent' placeholder='내용을 입력해주세요.'></textarea>";
     text += "</div>";
     text += "<div class='step_pic_wrap'>";
-    text += "<input type='file' class='step_upload' accept='image/* multiple'>";
+    text += "<input type='file' name='stepFile' class='step_upload' accept='image/* multiple'>";
     text += "<img class='step_pic_add' onclick='clickImage(this)' src='/assets/images/add_pic.gif' alt='step 이미지 추가'>";
     text += "</div>";
     text += "<div class='del_btn_wrap'>";
@@ -142,7 +143,6 @@ function addStep(obj){
 
     let step_lst = $(obj).closest(".step_plus_wrap").siblings(".step_lst");
     step_lst.append(text);
-
     let i = $('.step_lst li').length;
     let targetId = 'stepList';
 

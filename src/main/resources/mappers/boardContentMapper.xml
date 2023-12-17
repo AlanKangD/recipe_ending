@@ -65,4 +65,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	</insert>
+
+	<insert id="insertThirdStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
+		<selectKey resultType="int" keyProperty="recipeNo" order="BEFORE">
+			SELECT RECIPE_NO FROM RECIPE order by RECIPE_REG_DT desc limit 1
+		</selectKey>
+			INSERT INTO RECIPE_DETAIL
+			(
+				recipe_detail_step
+				, recipe_detail_content
+				, recipe_detail_image_name
+				, RECIPE_NO
+			)
+			VALUE
+			(
+				#{recipeDetailStep}
+				, #{recipeDetailContent}
+				, #{recipeFileName}
+				, #{recipeNo}
+			)
+	</insert>
 </mapper>

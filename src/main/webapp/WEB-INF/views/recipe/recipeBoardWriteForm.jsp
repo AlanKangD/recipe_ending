@@ -209,17 +209,17 @@
                     <button type="button" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
                 </div>
             </div>
-            <%--<div class="sub_card order_card">
+            <div class="sub_card order_card">
                 <h3>요리순서</h3>
                 <div class="card_desc mt_16"><i class="ico_info_circle ico_24"></i><p>요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 적어주세요.</p></div>
                 <ul class="step_lst">
                     <li>
                         <p>Step<span class="stepTitNum">1</span></p>
                         <div class="input_writing_group input_area step_txt">
-                            <textarea name="" id="" placeholder="내용을 입력해주세요."></textarea>
+                            <textarea name="recipeContent" placeholder="내용을 입력해주세요."></textarea>
                         </div>
                         <div class="step_pic_wrap">
-                            <input type="file" class="step_upload" accept="image/* multiple">
+                            <input type="file" name="stepFile" class="step_upload" accept="image/* multiple">
                             <img class="step_pic_add" onclick="clickImage(this)" src="${contextPath}/assets/images/add_pic.gif" alt="step 이미지 추가">
                         </div>
                         <div class="del_btn_wrap">
@@ -230,7 +230,7 @@
                 <div class="step_plus_wrap">
                     <button type="button" class="btn btn_md btn_border step_plus" onclick="addStep(this)"><i class="ico_add black ico_24"></i>순서 추가</button>
                 </div>
-            </div>--%>
+            </div>
             <div class="sub_card">
                 <div class="sub_card_inner">
                     <ul class="reci_cont">

@@ -58,8 +58,8 @@ public class RecipeBoardController {
 		}
 
 		if(mul.getFile("imageFile") != null) {
-			//String changeFileName = fileService.fileProcess(mul.getFile("imageFile"));
-			//recipeVO.setRecipeFileName(changeFileName);   // 파일 이름 변환 오리지널 이름은 파일 테입르에서 조회가능
+			String changeFileName = fileService.fileProcess(mul.getFile("imageFile"));
+			recipeVO.setRecipeFileName(changeFileName);   // 파일 이름 변환 오리지널 이름은 파일 테입르에서 조회가능
 		}
 
 		if (map != null) {  // 1 Step 레시피 등록
@@ -69,7 +69,7 @@ public class RecipeBoardController {
 			recipeVO.setRecipeTip((String) map.get("recipeTip"));
 			recipeVO.setRecipePerson((String) map.get("recipePerson"));
 			recipeVO.setRecipeTime((String) map.get("recipeTime"));
-			//rs.insertFisrtStep(recipeVO);
+			rs.insertFisrtStep(recipeVO);
 		}
 
 		//////////////first step ok //////////////
@@ -77,16 +77,13 @@ public class RecipeBoardController {
 
 		///////////// secound step start /////////
 
-		System.out.println("recipeEtcIngredient" );
-		System.out.println("recipeEtcQuantity" );
-
 		String[] recipeEtc =  mul.getParameterValues("recipeEtc");
 
 		String[] ingredient = mul.getParameterValues("recipeEtcIngredient");
 		String[] quantity = mul.getParameterValues("recipeEtcQuantity");
 		int checkPoint = 0;
 		for(int i=0; i < ingredient.length; i++) {
-			if(ingredient[0].equals("startPoint")){  //startPoint 가 시작되면 추가 재료영역이 있는 flag값
+			if(ingredient[i].equals("startPoint")){  //startPoint 가 시작되면 추가 재료영역이 있는 flag값
 				checkPoint++;
 				continue;
 			}

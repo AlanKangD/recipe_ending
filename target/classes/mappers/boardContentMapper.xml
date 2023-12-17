@@ -18,23 +18,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
 
-		insert into
+		INSERT INTO
 		    RECIPE (
 				recipe_type
 				, recope_name
-				, recipe_reg_dt
-				, recipe_display
 				, recipe_explanation
 				, recipe_file_name
+				, recipe_tip
+				, recipe_person
+				, recipe_time
 			)
 		VALUES
 			(
 				#{recipeType}
 				, #{recipeName}
-				, now()
-				, 'Y'
 				, #{recipeExplanation}
 				, #{recipeFileName}
+				, #{recipeTip}
+				, #{recipePerson}
+				, #{recipeTime}
 			)
 
 	</insert>
@@ -44,21 +46,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey resultType="int" keyProperty="recipeNo" order="BEFORE">
 			SELECT RECIPE_NO FROM RECIPE order by RECIPE_REG_DT desc limit 1
 		</selectKey>
-		INSERT INTO
-			RECIPE_ETC
+		INSERT INTO RECIPE_ETC
 			(
-				  RECIPE_ETC_INGREDIENT
+				RECIPE_ETC
+			 	, RECIPE_ETC_INGREDIENT
 				, RECIPE_ETC_QUANTITY
 				, RECIPE_ETC_TYPE
-				, RECIPE_ETC_DT
 				, RECIPE_NO
 			)
 		VALUES
 		    (
-				#{recipeEtcIngredient}
+				#{recipeEtc}
+		  		, #{recipeEtcIngredient}
 				, #{recipeEtcQuantity}
 				, #{recipeEtcType}
-				, now()
 				, #{recipeNo}
 			)
 

@@ -98,5 +98,9 @@ public class RecipeBoardController {
 		return "recipe/recipeList";
 	}
 
+	@GetMapping("recipe/template.do")
+	public String template() {
+		return "recipe/template";
+	}
 	
 }

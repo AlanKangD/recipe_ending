@@ -20,7 +20,9 @@
     <div id="wrap">
         <nav class="menu_lst" style="z-index:1;">
             <h1>
-                <a href="#" target="iframe">ALAN 레시피 </a>
+                <a href="#" target="iframe">
+                    <img src="${contextPath}/assets/images/logo_white.png" alt="logo">
+                </a>
             </h1>
             <dl>
                 <dt class="depth1">레시피 관리</dt>

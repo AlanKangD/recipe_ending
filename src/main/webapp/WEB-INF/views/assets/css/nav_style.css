@@ -1,8 +1,8 @@
 @charset "utf-8";
 
-nav{position:fixed; width:236px; height:100vh; padding:45px 0 48px 0px; background:#444B59; box-shadow:0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22); transition:0.2s;}
-h1{position:fixed; top:0; left:0; width:236px; height:45px; font-weight:bold; border-bottom:1px solid #575d6a; transition:0.2s;} /* 20231016 추가 */
-h1 a{display:block; color:#fff; padding:9px 25px; font-size:22px;}
+nav{position:fixed; width:236px; height:100vh; padding:83px 0 48px 0px; background:#444B59; box-shadow:0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22); transition:0.2s;}
+h1{position:fixed; top:0; left:0; width:236px; height:83px; font-weight:bold; border-bottom:1px solid #575d6a; transition:0.2s;} /* 20231016 추가 */
+h1 a{display:block; color:#fff; padding:9px 40px; font-size:22px;}
 .iframe{width:calc(100% - 260px); height:100vh; margin-left:260px; background-color:#fff;}
 .depth1{color:#fff; padding:16px 0 8px 0; font-size:18px; font-weight:500; line-height:24px;}
 /*.depth1:first-of-type{border-top:1px solid #575d6a;}*/ /* 20231016 삭제 */

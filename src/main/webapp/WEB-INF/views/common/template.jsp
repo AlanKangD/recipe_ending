@@ -23,25 +23,5 @@
         <jsp:include page="../recipe/recipeBoardWriteForm.jsp"/>
 
     </div>
-    <script>
-
-        $(function(){
-            $('.menu_lst h1 a').click(function(){
-                $('.depth2_lst li').siblings().removeClass('active');
-                sessionStorage.setItem('currentPage', $(this).attr('href'));
-            });
-
-            $('.depth2_lst li').click(function(){
-                $('.depth2_lst li').siblings().removeClass('active');
-                $(this).addClass('active')
-                sessionStorage.setItem('currentPage', $(this).find('a').attr('href'));
-            });
-
-            $('.menubar_toggle').click(function(){
-                $('.menu_lst').toggleClass('collapsed');
-                $('#container').toggleClass('collapsed');
-            });
-        });
-    </script>
 </body>
 </html>

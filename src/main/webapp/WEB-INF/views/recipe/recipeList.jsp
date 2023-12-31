@@ -20,7 +20,9 @@
 </head>
 <body>
     <div id="wrap" class="wrapper_bo recipe_lst"> <!-- .wrapper_bo = BO레이아웃 관련, .recipe_lst = 레시피 목록 -->
+
         <h2>레시피 목록</h2>
+
         <main id="container">
             <div class="cont_card">
                 <div class="tbl_utill">

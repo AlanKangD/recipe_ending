@@ -118,7 +118,6 @@ public class RecipeBoardController {
 	}
 
 
-
 	@RequestMapping("recipe/recipeList.do")
 	public String recipeList() {
 		return "recipe/recipeList";
@@ -138,5 +137,10 @@ public class RecipeBoardController {
 			};
 		}
 		return null;
+	}
+
+	@RequestMapping("recipe/template.do")
+	public String template() {
+		return "recipe/template";
 	}
 }

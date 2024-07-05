@@ -15,6 +15,7 @@ h2{position:absolute; top:15px; left:30px; font-size:22px; font-weight:bold; col
 .recipe_write .sub_card_inner{display:flex; justify-content:space-between;}
 .recipe_write .reci_cont{width:65%;}
 .recipe_write .reci_cont li{display:flex; width:100%;}
+.recipe_write .page_wrapper{display:flex; justify-content:right; margin-top:16px;}
 .reci_cont .cont_tit{width:25%; font-size:20px; padding-top:8px;}
 .reci_cont .input_text[type=text]:focus{border:1px solid #DBDBDB;}
 .reci_cont .select_box{min-width:auto;}

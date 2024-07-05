@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="${contextPath}/assets/css/swiper.min.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/swiper.min.css" />
 <link rel="stylesheet" href="${contextPath}/assets/css/recipe_write.css" />
+<link rel="stylesheet" href="${contextPath}/assets/css/sub.css" />
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="${contextPath}/assets/js/variable_func.js"></script>
 </head>
@@ -20,7 +22,7 @@
     <div id="wrap">
         <jsp:include page="navigation.jsp"/>
 
-        <jsp:include page="../recipe/recipeBoardWriteForm.jsp"/>
+        <jsp:include page="../recipe/${content}.jsp"/>
 
     </div>
 </body>

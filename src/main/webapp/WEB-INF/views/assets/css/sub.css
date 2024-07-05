@@ -15,4 +15,4 @@
 .reci_lst_tbl.tbl tbody td:last-child{padding:5px 16px;}
 .reci_lst_tbl tbody tr:nth-child(even) td{/*background-color:#fafafa;*/ background-color:#fcfcfc;}
 .reci_lst_tbl tbody tr{text-align:center;}
-.recipe_lst .page_wrapper{display:flex; justify-content:right; margin-top:16px;}
+.recipe_write .page_wrapper{display:flex; justify-content:right; margin-top:16px;}

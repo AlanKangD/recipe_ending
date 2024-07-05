@@ -64,6 +64,26 @@ public class RecipeVO {
 
     //////////////////////////////
 
+    private int recipeLike;     // 레시피 좋아요 수
+
+    private int recipeViewCnt;  // 레시피 조회 수
+
+
+    public int getRecipeLike() {
+        return recipeLike;
+    }
+
+    public void setRecipeLike(int recipeLike) {
+        this.recipeLike = recipeLike;
+    }
+
+    public int getRecipeViewCnt() {
+        return recipeViewCnt;
+    }
+
+    public void setRecipeViewCnt(int recipeViewCnt) {
+        this.recipeViewCnt = recipeViewCnt;
+    }
 
     public int getRecipeDetailStep() {
         return recipeDetailStep;

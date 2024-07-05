@@ -7,11 +7,14 @@ import com.care.root.recipeBoard.service.RecipeBoardService;
 import com.care.root.recipeBoard.vo.RecipeVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.util.*;
 
@@ -119,8 +122,16 @@ public class RecipeBoardController {
 
 
 	@RequestMapping("recipe/recipeList.do")
-	public String recipeList() {
-		return "recipe/recipeList";
+	public String recipeList(HttpServletRequest request, HttpServletResponse response, Model model) {
+		List<RecipeVO> list = new ArrayList<>();
+
+		list = rs.selectRecipeList();
+		int listTotalCnt = rs.listTotalCnt();
+
+		model.addAttribute("list" , list);
+		model.addAttribute("listTotalCnt" , listTotalCnt + 1);
+		model.addAttribute("content" , "recipeList");
+		return "common/template";
 	}
 
 
@@ -141,6 +152,6 @@ public class RecipeBoardController {
 
 	@RequestMapping("recipe/template.do")
 	public String template() {
-		return "recipe/template";
+		return "common/template";
 	}
 }

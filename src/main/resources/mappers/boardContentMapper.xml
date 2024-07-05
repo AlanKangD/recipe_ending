@@ -14,6 +14,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="recipeDel" column="recipe_del"/>
 	</resultMap>
 
+	<resultMap id="list" type="com.care.root.recipeBoard.vo.RecipeVO">
+		<id property="recipeNo" column="recipe_no"/>
+		<result property="recipeType" column="recipe_type"/>
+		<result property="recipeName" column="recipe_name"/>
+		<result property="recipeRegDt" column="recipe_reg_dt"/>
+		<result property="recipeLike" column="recipe_like"/>
+		<result property="recipeViewCnt" column="recipe_view_cnt"/>
+	</resultMap>
+
 
 
 	<insert id="insertFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
@@ -21,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO
 		    RECIPE (
 				recipe_type
-				, recope_name
+				, recipe_name
 				, recipe_explanation
 				, recipe_file_name
 				, recipe_tip
@@ -85,4 +94,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				, #{recipeNo}
 			)
 	</insert>
+
+	<select id="selectRecipeList" resultMap="list">
+		SELECT
+			recipe_no,
+			recipe_type,
+			recipe_name,
+			recipe_reg_dt,
+			recipe_like,
+			recipe_view_cnt
+		FROM RECIPE
+		WHERE recipe_del != 'Y'
+	</select>
+
+	<select id="listTotalCnt" resultType="int">
+		SELECT
+			count(*)
+		FROM RECIPE
+		WHERE recipe_del != 'Y'
+	</select>
+
 </mapper>

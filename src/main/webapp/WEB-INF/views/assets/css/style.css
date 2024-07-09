@@ -3336,12 +3336,12 @@ button {
 }
 .btn_primary {
   color: #fff !important;
-  border: 1px solid #0f62fe;
-  background-color: #0f62fe;
+  border: 1px solid #444b59;
+  background-color: #444b59;
 }
 .btn_primary:hover {
-  border-color: #0043CE;
-  background-color: #0043CE;
+  border-color: #495366;
+  background-color: #495366;
 }
 .btn_secondary {
   color: #fff !important;

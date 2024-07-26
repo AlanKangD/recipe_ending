@@ -68,6 +68,36 @@ public class RecipeVO {
 
     private int recipeViewCnt;  // 레시피 조회 수
 
+    private String filePath;  // 파일 경로
+
+
+    /** paging Setting **/
+    private int start;
+    private int end;
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
     public int getRecipeLike() {
         return recipeLike;

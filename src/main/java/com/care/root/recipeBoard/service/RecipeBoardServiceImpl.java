@@ -31,15 +31,40 @@ public class RecipeBoardServiceImpl implements RecipeBoardService{
 	}
 
 	@Override
-	public List<RecipeVO> selectRecipeList() {
+	public List<RecipeVO> selectRecipeList(RecipeVO search) {
 
-		return mapper.selectRecipeList();
+		return mapper.selectRecipeList(search);
 
 	}
 
 	@Override
-	public int listTotalCnt() {
-		return mapper.listTotalCnt();
+	public int listTotalCnt(RecipeVO search) {
+		return mapper.listTotalCnt(search);
+	}
+
+	@Override
+	public List<RecipeVO> selectRecipe(String recipeNo) {
+		return mapper.selectRecipe(recipeNo);
+	}
+
+	@Override
+	public List<RecipeVO> selectRecipeEtc(String recipeNo) {
+		return mapper.selectRecipeEtc(recipeNo);
+	}
+
+	@Override
+	public void recipeDel(String recipeNo) {
+		mapper.recipeDel(recipeNo);
+	}
+
+	@Override
+	public List categoryList() {
+		return mapper.categoryList();
+	}
+
+	@Override
+	public List timelist() {
+		return mapper.timelist();
 	}
 
 

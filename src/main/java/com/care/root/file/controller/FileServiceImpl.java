@@ -60,7 +60,9 @@ public class FileServiceImpl implements FileService{
     }
 
     public static String generateRandomCode(int length) {
+        // 랜덤 숫자 배열
         String characters = "0123456789";
+
         StringBuilder randomCode = new StringBuilder(length);
         Random random = new Random();
         for (int i = 0; i < length; i++) {

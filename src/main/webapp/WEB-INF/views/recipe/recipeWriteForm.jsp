@@ -33,12 +33,15 @@
                                 <div class="select_box tbl_select_box">
                                       <span class="select_box_arr"></span>
                                       <select class="select_box_value" name="recipeType">
-                                            <option value="null">종류별</option>
+                                          <c:forEach items="${categoryList}" var="categoryList">
+                                              <option value="${categoryList.category_code}">${categoryList.category_code_nm}</option>
+                                          </c:forEach>
+                                            <%--<option value="null">종류별</option>
                                             <option value="0">한식</option>
                                             <option value="1">중식</option>
                                             <option value="2">양식</option>
                                             <option value="3">일식</option>
-                                            <option value="4">NEW</option>
+                                            <option value="4">NEW</option>--%>
                                       </select>
                                 </div>
                                 <%--<div class="select_box tbl_select_box">
@@ -108,7 +111,7 @@
                         <li>
                             <p class="cont_tit">요리정보</p>
                             <div class="select_wrap cook_inf">
-                                <div class="cook_inf_wrap">
+                                <%--<div class="cook_inf_wrap">
                                     <span class="select_box_label">인원</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
@@ -122,13 +125,15 @@
                                                 <option value="6">6인분 이상</option>
                                           </select>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="cook_inf_wrap">
-                                    <span class="select_box_label">시간</span>
                                     <div class="select_box tbl_select_box">
                                           <span class="select_box_arr"></span>
                                           <select class="select_box_value" name="recipeTime">
-                                                <option value=null">시간</option>
+                                              <c:forEach items="${timeList}" var="timeList">
+                                                  <option value="${timeList.category_code}">${timeList.category_code_nm}</option>
+                                              </c:forEach>
+                                                <%--<option value=null">시간</option>
                                                 <option value="5">5분이내</option>
                                                 <option value="10">10분이내</option>
                                                 <option value="15">15분이내</option>
@@ -136,7 +141,8 @@
                                                 <option value="30">30분이내</option>
                                                 <option value="60">60분이내</option>
                                                 <option value="90">90분이내</option>
-                                                <option value="">2시간이상</option>
+                                                <option value="">2시간이상</option>--%>
+
                                           </select>
                                     </div>
                                 </div>
@@ -167,6 +173,7 @@
             </div>
             <div class="sub_card">
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
+                <div id="test">
                 <ul class="material_wrap">
                     <li class="material_inner">
                         <div class="input_group input_area material_tit">
@@ -197,6 +204,7 @@
                         </div>
                     </li>
                 </ul>
+                </div>
                 <div class="material_inner_plus">
                     <button type="button" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
                 </div>
@@ -236,7 +244,7 @@
                 </div>
                 <div class="btn_group">
                     <button type="submit" class="btn btn_md btn_primary">레시피 저장</button>
-                    <button type="button" class="btn btn_md btn_normal">취소</button>
+                    <button type="button" class="btn피 btn_md btn_normal">취소</button>
                 </div>
             </div>
             </form>

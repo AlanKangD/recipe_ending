@@ -1,10 +1,12 @@
 package com.care.root.recipeBoard.controller;
 
+import com.care.root.common.util.Paging;
 import com.care.root.file.controller.FileService;
 import com.care.root.file.controller.FileServiceImpl;
 import com.care.root.file.vo.FileVO;
 import com.care.root.recipeBoard.service.RecipeBoardService;
 import com.care.root.recipeBoard.vo.RecipeVO;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,22 +29,118 @@ public class RecipeBoardController {
 	@Autowired
 	FileService fileService;
 
-	@GetMapping("recipe/recipeBoard")
-	public String recipeBoardList() {
-		
-		return "recipe/recipeBoard";
+	@RequestMapping("recipe/template.do")
+	public String template() {
+		return "common/template";
 	}
 
-	@RequestMapping(value = "recipe/index.do" , method = RequestMethod.GET)
-	public String recipeIndex() {
-		return "recipe/recipeIndex";
+	@RequestMapping("recipe/recipeList.do")
+	public String recipeList(HttpServletRequest request, HttpServletResponse response, Model model) {
+		List<RecipeVO> list = new ArrayList<>();
+
+		int pageNo = 1;
+
+		if(request.getParameter("pageNo") != null) {
+			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+		}
+
+
+		RecipeVO search = new RecipeVO();
+		/**
+		 * pageing Setting Start
+		 **/
+		int currentPage = pageNo;
+		int pagePerScreen = 10;
+		int itemCountPerOnPage = 10;
+		int endRowNo = currentPage * itemCountPerOnPage;
+		int startRowNo = (endRowNo - (itemCountPerOnPage));
+
+		search.setStart(startRowNo);
+		search.setEnd(endRowNo);
+
+		list = rs.selectRecipeList(search);
+		int listTotalCnt = rs.listTotalCnt(search);
+
+		model.addAttribute("list" , list);
+		model.addAttribute("pageNo" , pageNo);
+		model.addAttribute("paging" , Paging.getPage(listTotalCnt, itemCountPerOnPage, pagePerScreen, currentPage));
+		model.addAttribute("listTotalCnt" , listTotalCnt + 1);
+		model.addAttribute("content" , "recipeList");
+		return "common/template";
 	}
 	
 	@GetMapping("recipe/recipeBoardWrite.do")
-	public String recipeBoardWrite() {
-		
-		return "recipe/recipeBoardWriteForm";
+	public String recipeBoardWrite(HttpServletRequest request, HttpServletResponse response, Model model) {
+		List categoryList = rs.categoryList();
+		List timeList = rs.timelist();
+
+		model.addAttribute("categoryList" , categoryList);
+		model.addAttribute("timeList" , timeList);
+		model.addAttribute("content" , "recipeWriteForm");
+		return "common/template";
 	}
+
+	@RequestMapping("recipe/recipeMod.do")
+	public String recipeMod(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam("recipeNo") String recipeNo) {
+		List<RecipeVO> list = new ArrayList<>();
+		List<RecipeVO> listEtc = new ArrayList<>();
+
+		RecipeVO recipe = new RecipeVO();
+
+		list = rs.selectRecipe(recipeNo);
+
+		recipe.setRecipeNo(list.get(0).getRecipeNo());
+		recipe.setRecipeType(list.get(0).getRecipeType());
+		recipe.setRecipeName(list.get(0).getRecipeName());
+		recipe.setRecipeFileName(list.get(0).getRecipeFileName());
+		recipe.setRecipeExplanation(list.get(0).getRecipeExplanation());
+		recipe.setRecipeTip(list.get(0).getRecipeTip());
+		recipe.setRecipePerson(list.get(0).getRecipePerson());
+		recipe.setRecipeTime(list.get(0).getRecipeTime());
+
+		listEtc = rs.selectRecipeEtc(recipeNo);
+
+
+		// 대 묶음 재료 count 값
+		String check = "check";
+		List recipeEtcList = new ArrayList<>();
+
+		for(int i=0; i < listEtc.size(); i++) {
+			// 신규 대재료 값 세팅
+			if(!check.equals(listEtc.get(i).getRecipeEtc())) {
+				check = listEtc.get(i).getRecipeEtc();
+				recipeEtcList.add(check);
+			}
+		}
+
+
+		model.addAttribute("list" , list);
+		model.addAttribute("listEtc" , listEtc);
+		model.addAttribute("recipe" , recipe);
+		model.addAttribute("recipeEtcList" , recipeEtcList);
+		model.addAttribute("content" , "recipeModForm");
+		return "common/template";
+	}
+
+	@RequestMapping(value = "recipe/recipeDel.do", produces="application/json; charset=utf-8")
+	public @ResponseBody Object recipeDel(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam("recipeNo") String recipeNo) {
+
+		rs.recipeDel(recipeNo);
+
+		return "1";
+	}
+
+	@PostMapping("/recipeEtc")
+	public @ResponseBody List searchRecipeEtc(@RequestParam("recipeNo") String recipeNo) {
+		List<RecipeVO> listEtc = new ArrayList<>();
+		listEtc = rs.selectRecipeEtc(recipeNo);
+
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("jsonListEtc", listEtc);
+		return listEtc;
+	}
+
+
 	//@Transactional
 	@PostMapping(value = "recipe/recipeBoardWrite")
 	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
@@ -120,21 +218,6 @@ public class RecipeBoardController {
 		return  "redirect:recipeList.do";
 	}
 
-
-	@RequestMapping("recipe/recipeList.do")
-	public String recipeList(HttpServletRequest request, HttpServletResponse response, Model model) {
-		List<RecipeVO> list = new ArrayList<>();
-
-		list = rs.selectRecipeList();
-		int listTotalCnt = rs.listTotalCnt();
-
-		model.addAttribute("list" , list);
-		model.addAttribute("listTotalCnt" , listTotalCnt + 1);
-		model.addAttribute("content" , "recipeList");
-		return "common/template";
-	}
-
-
 	// g , T , t , ml , l , kg
 	public List splitCheckType(String text) {
 		List resultList = new ArrayList();
@@ -150,8 +233,5 @@ public class RecipeBoardController {
 		return null;
 	}
 
-	@RequestMapping("recipe/template.do")
-	public String template() {
-		return "common/template";
-	}
+
 }

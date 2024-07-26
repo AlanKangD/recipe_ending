@@ -14,6 +14,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="recipeDel" column="recipe_del"/>
 	</resultMap>
 
+	<resultMap id="list" type="com.care.root.recipeBoard.vo.RecipeVO">
+		<id property="recipeNo" column="recipe_no"/>
+		<result property="recipeType" column="recipe_type"/>
+		<result property="recipeName" column="recipe_name"/>
+		<result property="recipeRegDt" column="recipe_reg_dt"/>
+		<result property="recipeLike" column="recipe_like"/>
+		<result property="recipeViewCnt" column="recipe_view_cnt"/>
+	</resultMap>
+
+	<resultMap id="detail" type="com.care.root.recipeBoard.vo.RecipeVO">
+		<id property="recipeNo" column="recipe_no"/>
+		<result property="recipeType" column="recipe_type"/>
+		<result property="recipeName" column="recipe_name"/>
+		<result property="recipeRegDt" column="recipe_reg_dt"/>
+		<result property="recipeFileName" column="recipe_file_name"/>
+		<result property="recipeExplanation" column="recipe_explanation"/>
+		<result property="recipeTip" column="recipe_tip"/>
+		<result property="recipePerson" column="recipe_person"/>
+		<result property="recipeDetailStep" column="recipe_detail_step"/>
+		<result property="recipeDetailContent" column="recipe_detail_content"/>
+		<result property="recipeDetailImageName" column="recipe_detail_image_name"/>
+		<result property="filePath" column="file_path"/>
+	</resultMap>
+
+	<resultMap id="etc" type="com.care.root.recipeBoard.vo.RecipeVO">
+		<id property="recipeNo" column="recipe_no"/>
+		<result property="recipeEtc" column="recipe_etc"/>
+		<result property="recipeEtcIngredient" column="recipe_etc_ingredient"/>
+		<result property="recipeEtcQuantity" column="recipe_etc_quantity"/>
+		<result property="recipeEtcType" column="recipe_etc_type"/>
+	</resultMap>
 
 
 	<insert id="insertFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
@@ -21,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO
 		    RECIPE (
 				recipe_type
-				, recope_name
+				, recipe_name
 				, recipe_explanation
 				, recipe_file_name
 				, recipe_tip
@@ -85,4 +116,86 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				, #{recipeNo}
 			)
 	</insert>
+
+	<select id="selectRecipeList" resultMap="list" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
+		SELECT
+			recipe_no,
+			recipe_type,
+			recipe_name,
+			recipe_reg_dt,
+			recipe_like,
+			recipe_view_cnt
+		FROM RECIPE
+		WHERE recipe_del != 'Y'
+		ORDER BY recipe_reg_dt DESC
+		LIMIT #{end} OFFSET #{start}
+	</select>
+
+	<select id="listTotalCnt" resultType="int" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
+		SELECT
+			count(*)
+		FROM RECIPE
+		WHERE recipe_del != 'Y'
+	</select>
+
+	<select id="selectRecipe" parameterType="String" resultMap="detail">
+		select
+			r.recipe_no
+			 , r.recipe_type
+			 , r.recipe_name
+			 , r.recipe_reg_dt
+			 , r.recipe_file_name
+			 , r.recipe_person
+			 , r.recipe_tip
+			 , r.recipe_explanation
+			 , rd.recipe_detail_step
+			 , rd.recipe_detail_content
+			 , rd.recipe_detail_image_name
+			 , a.file_path
+		from
+			RECIPE r left outer join RECIPE_DETAIL rd
+					 on r.recipe_no = rd.recipe_no
+					 left outer join ATTACHEMENT a
+					 on rd.recipe_detail_image_name = a.file_chage_name
+		where r.recipe_no =  #{recipeNo}
+	</select>
+
+	<select id="selectRecipeEtc" parameterType="String" resultMap="etc">
+		select
+		     recipe_no
+			 , recipe_etc
+			 , recipe_etc_ingredient
+			 , recipe_etc_quantity
+			 , recipe_etc_type
+		from RECIPE_ETC
+		where recipe_no =  #{recipeNo}
+	</select>
+
+	<update id="recipeDel">
+		update
+			RECIPE
+		set
+			recipe_del = 'Y'
+		where
+		    recipe_no = #{recipeNo}
+	</update>
+
+	<select id="categoryList" resultType="hashMap">
+		SELECT
+			*
+		FROM CATEGORY_CODE
+		WHERE category_del != 'Y'
+		and category_code_up = 'category'
+		or category_code = 'category'
+	</select>
+
+	<select id="timelist" resultType="hashMap">
+		SELECT
+			*
+		FROM CATEGORY_CODE
+		WHERE category_del != 'Y'
+		and category_code_up = 'timeInfo'
+		or category_code = 'timeInfo'
+	</select>
+
 </mapper>

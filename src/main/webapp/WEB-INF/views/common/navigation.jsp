@@ -6,24 +6,27 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }" />
+
 <html>
 <body>
   <nav class="menu_lst" style="z-index:1;">
     <h1>
-      <a href="/" target="iframe">ALAN 레시피 </a>
+      <a href="/">ALAN 레시피 </a>
     </h1>
     <dl>
       <dt class="depth1">레시피 관리</dt>
       <dd class="depth2">
         <ul class="depth2_lst">
           <li>
-            <a href="#" target="iframe">
+            <a href="/">
               <i class="ico_24 reci_modi"></i>
               <span>레시피 목록</span>
             </a>
           </li>
           <li>
-            <a href="#" target="iframe">
+            <a href="${contextPath}/recipe/recipeBoardWrite.do">
               <i class="ico_24 reci_upload"></i>
               <span>레시피 등록</span>
             </a>

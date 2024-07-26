@@ -11,12 +11,14 @@
 </head>
 <body>
     <div id="wrap"> <!-- .wrapper_bo = BO레이아웃 관련, .recipe_lst = 레시피 목록 -->
+        <form id="form" method="post">
+        <input type="hidden" id="pageNo" name="pageNo" value="<c:out value="${pageNo}"/>">
 
         <main id="container" class="recipe_write">
             <h2>레시피 목록</h2>
             <div class="cont_card">
                 <div class="tbl_utill">
-                    <p class="tbl_info">검색결과 <span>10</span>건</p>
+                    <p class="tbl_info">검색결과 <span>${listTotalCnt -1 }</span>건</p>
                     <div class="tbl_srch">
                         <div class="select_box tbl_select_box">
                               <span class="select_box_arr"></span>
@@ -58,22 +60,20 @@
                     </thead>
                     <tbody class="tbl_divider">
                     <c:choose>
-                        <c:when test="${list != null}">
+                        <c:when test="${listTotalCnt > 1}">
                             <c:forEach items="${list }" var="list">
                                 <c:set var="listTotalCnt" value="${listTotalCnt -1 }"/>
 
                                 <tr>
                                     <td>${listTotalCnt}</td>
-                                    <td><a class="title" href="${contextPath}/recipe/recipeBoardWrite.do">${list.recipeName}</a></td>
+                                    <td><a class="title" href="${contextPath}/recipe/recipeMod.do?recipeNo=${list.recipeNo}">${list.recipeName}</a></td>
                                     <td>${list.recipeType}</td>
-                                    <td>${list.recipeRegDt}</td>
+                                    <td>${list.recipeRegDt}</td>`
                                     <td>${list.recipeLike}</td>
                                     <td>${list.recipeViewCnt}</td>
-                                    <td class="lst_del"><button type="button" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
+                                    <td class="lst_del"><button type="button" onclick="javascipt:recipeDel('${list.recipeNo}')" class="btn btn_sm btn_white btn_icon"><i class="ico_close primary ico_24"></i></button></td>
                                 </tr>
                             </c:forEach>
-
-
                         </c:when>
                         <c:otherwise>
                             <tr>
@@ -84,7 +84,7 @@
                     </tbody>
                 </table>
                 <div class="page_wrapper">
-                    <div class="pagination" aria-label="Page Navigation">
+                   <%-- <div class="pagination" aria-label="Page Navigation">
                         <a href="javascript:void(0);" class="arr prev"><span>이전</span></a>
                         <a href="javascript:void(0);" class="page_link active"><span>1</span></a>
                         <a href="javascript:void(0);" class="page_link"><span>2</span></a>
@@ -92,15 +92,55 @@
                         <a href="javascript:void(0);" class="page_link"><span>4</span></a>
                         <a href="javascript:void(0);" class="page_link"><span>5</span></a>
                         <a href="javascript:void(0);" class="arr next"><span>다음</span></a>
-                    </div>
+                    </div>--%>
+                    <c:out value="${paging}" escapeXml="false" />
+
+
                 </div>
             </div>
         </main>
+
+        </form>
     </div>
+
     <script>
-      /*  $('table tr td').on('click', function(e){
-            location.href= $(this).siblings('.title').children('a').attr('href');
-        });*/
+
+
+        $('table tr td').on('click', function(e){
+
+            // td 태그를 클릭 시에 버튼 onclick 이벤트를 잡아 먹어 삭제 버튼은 예외처리
+            if(this.className == 'lst_del') {
+              return ;
+            }
+            location.href= $(this).children('a').attr('href');
+        });
+
+
+        function recipeDel(recipeNo) {
+            var confirmMessage = confirm("정말 삭제하시겠습니까?");
+
+            if(confirmMessage) {
+                $.ajax({
+                    url : "${contextPath}/recipe/recipeDel.do",
+                    data: {
+                        "recipeNo" : recipeNo
+                    },
+                    type: "POST" ,
+                    dataType: "json",
+                    success: function(data) {
+                        alert("삭제 되었습니다.");
+                        location.reload();
+                    }
+
+                })
+            }
+        }
+
+        function pageClick(pageNo) {
+            $('#pageNo').val(pageNo);
+            $('#form').attr("action", "${contextPath}/recipe/recipeList.do").submit();
+        }
+
     </script>
 </body>
 </html>

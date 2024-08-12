@@ -11,6 +11,7 @@
 <div id="wrap">
     <main id="container" class="recipe_write">
         <form method="post" action="${contextPath }/recipe/recipeMod" enctype="multipart/form-data">
+            <input type="hidden" id="recipeNo" name="recipeNo" value="${recipe.recipeNo}">
             <h2>레시피 등록</h2>
             <div class="sub_card">
                 <div class="sub_card_inner">
@@ -238,7 +239,7 @@
                     </ul>
                 </div>
                 <div class="btn_group">
-                    <button type="submit" class="btn btn_md btn_primary">레시피 저장</button>
+                    <button type="submit" class="btn btn_md btn_primary">레시피 수정</button>
                     <button type="button" class="btn btn_md btn_normal">취소</button>
                 </div>
             </div>
@@ -255,11 +256,12 @@
         var start = 'check';
         var end = 'check';
         var message = '';
+        var recipeNo = $('#recipeNo').val();
 
         $.ajax({
             url : "/recipeEtc",
             data : {
-                "recipeNo" : "35"
+                "recipeNo" : recipeNo
             },
             type : "POST",
             datatype: "json",

@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap id="detail" type="com.care.root.recipeBoard.vo.RecipeVO">
 		<id property="recipeNo" column="recipe_no"/>
 		<result property="recipeType" column="recipe_type"/>
+		<result property="recipeTime" column="recipe_time"/>
 		<result property="recipeName" column="recipe_name"/>
 		<result property="recipeRegDt" column="recipe_reg_dt"/>
 		<result property="recipeFileName" column="recipe_file_name"/>
@@ -142,6 +143,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 			r.recipe_no
 			 , r.recipe_type
+			 , r.recipe_time
 			 , r.recipe_name
 			 , r.recipe_reg_dt
 			 , r.recipe_file_name

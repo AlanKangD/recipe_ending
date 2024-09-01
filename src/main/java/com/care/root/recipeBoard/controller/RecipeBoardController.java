@@ -113,7 +113,11 @@ public class RecipeBoardController {
 			}
 		}
 
+		List categoryList = rs.categoryList();
+		List timeList = rs.timelist();
 
+		model.addAttribute("categoryList" , categoryList);
+		model.addAttribute("timeList" , timeList);
 		model.addAttribute("list" , list);
 		model.addAttribute("listEtc" , listEtc);
 		model.addAttribute("recipe" , recipe);

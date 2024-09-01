@@ -33,13 +33,10 @@
                             <div class="select_wrap">
                                 <div class="select_box tbl_select_box">
                                     <span class="select_box_arr"></span>
-                                    <select class="select_box_value" name="recipeType">
-                                        <option value="null">종류별</option>
-                                        <option value="0">한식</option>
-                                        <option value="1">중식</option>
-                                        <option value="2">양식</option>
-                                        <option value="3">일식</option>
-                                        <option value="4">NEW</option>
+                                    <select class="select_box_value" name="recipeType" id="recipeType">
+                                        <c:forEach items="${categoryList}" var="categoryList">
+                                            <option value="${categoryList.category_code}">${categoryList.category_code_nm}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <%--<div class="select_box tbl_select_box">
@@ -109,11 +106,11 @@
                         <li>
                             <p class="cont_tit">요리정보</p>
                             <div class="select_wrap cook_inf">
-                                <div class="cook_inf_wrap">
-                                    <span class="select_box_label">인원</span>
+                                <%--<div class="cook_inf_wrap">
+                                    <span class="select_box_원label">인원</span>
                                     <div class="select_box tbl_select_box">
                                         <span class="select_box_arr"></span>
-                                        <select class="select_box_value" name="recipePerson">
+                                        <select class="select_box_value" name="recipeType">
                                             <option value="null">인원</option>
                                             <option value="1">1인분</option>
                                             <option value="2">2인분</option>
@@ -123,21 +120,14 @@
                                             <option value="6">6인분 이상</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="cook_inf_wrap">
-                                    <span class="select_box_label">시간</span>
                                     <div class="select_box tbl_select_box">
                                         <span class="select_box_arr"></span>
-                                        <select class="select_box_value" name="recipeTime">
-                                            <option value=null">시간</option>
-                                            <option value="5">5분이내</option>
-                                            <option value="10">10분이내</option>
-                                            <option value="15">15분이내</option>
-                                            <option value="20">20분이내</option>
-                                            <option value="30">30분이내</option>
-                                            <option value="60">60분이내</option>
-                                            <option value="90">90분이내</option>
-                                            <option value="">2시간이상</option>
+                                        <select class="select_box_value" name="recipeTime" id="recipeTime">
+                                            <c:forEach items="${timeList}" var="timeList">
+                                                <option value="${timeList.category_code}">${timeList.category_code_nm}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                 </div>
@@ -242,13 +232,27 @@
                     <button type="submit" class="btn btn_md btn_primary">레시피 수정</button>
                     <button type="button" class="btn btn_md btn_normal">취소</button>
                 </div>
-            </div>
+            </div>정
+
+            <input type="hidden" id="recipeTypeCheck" value="${recipe.recipeType}">
+            <input type="hidden" id="recipeTimeCheck" value="${recipe.recipeTime}">
         </form>
     </main>
 </div>
 </body>
 
 <script>
+    $(function () {
+        var recipeType = $('#recipeTypeCheck').val();
+        var recipeTime = $('#recipeTimeCheck').val();
+        alert('####### ' + recipeType);
+        alert('####### ' + recipeTime);
+
+
+        $('#recipeType').val(recipeType).change();
+        $('#recipeTime').val(recipeTime).change();
+
+    });
 
    recipeEtc();
 

@@ -26,94 +26,116 @@ $(function(){
     });
     */
 
-    $('.mat_innr_plus').on("click", function(){
-        let lstWrapTxt = "<li class='material_inner'>";
-        lstWrapTxt += "<input type='hidden' name='recipeEtcIngredient' value='startPoint'>";
-        lstWrapTxt += "<input type='hidden' name='recipeEtcQuantity' value='startPoint'>";
-        lstWrapTxt += "<div class='input_group input_area material_tit'>";
-        lstWrapTxt += "<input type='text' name='recipeEtc' class='input_text' value='' placeholder='재료 묶음 이름'>";
-        lstWrapTxt += "<button type='button' class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "재료/양념 묶음 삭제";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "<div class='material_lst_wrap'>";
-        lstWrapTxt += "<ul id='material_lst' class='material_lst'>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 돼지고기'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 300g'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 양배추'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1/2개'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 소금'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1T'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "</ul>";
-        lstWrapTxt += "<div class='lst_plus_wrap'>"
-        lstWrapTxt += "<button type='button' id='addItemButton' class='btn btn_md btn_border btn_icon mat_lst_plus' onclick='addList(this)'>";
-        lstWrapTxt += "<i class='ico_add black ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "</li>";
+    $('#etc_reg').on("click", function(){
+        let lstWrapTxt = '<li class="material_inner">';
+        lstWrapTxt += '<input type="hidden" name="recipeEtcIngredient" value="startPoint">';
+        lstWrapTxt += '<input type="hidden" name="recipeEtcQuantity" value="startPoint">';
+        lstWrapTxt += '<div class="input_group input_area material_tit">';
+        lstWrapTxt += '<input type="text" name="recipeEtc" class="input_text" value="" placeholder="재료 묶음 이름">';
+        lstWrapTxt += '<button type="button" class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '재료/양념 묶음 삭제';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '<div class="material_lst_wrap">';
+        lstWrapTxt += '<ul id="material_lst" class="material_lst">';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 돼지고기">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 300g">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 양배추">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1/2개">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 소금">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1T">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '</ul>';
+        lstWrapTxt += '<div class="lst_plus_wrap">';
+        lstWrapTxt += '<button type="button" id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)">';
+        lstWrapTxt += '<i class="ico_add black ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '</li>';
+
+       // const myList = document.getElementById('material_wrap');
+
+        //myList.append(lstWrapTxt);
         $('.material_wrap').append(lstWrapTxt);
     });
 
     $('#etc_mod').on("click", function(){
-        let lstWrapTxt = "<li class='material_inner'>";
-        lstWrapTxt += "<input type='hidden' name='recipeEtcIngredient' value='startPoint'>";
-        lstWrapTxt += "<input type='hidden' name='recipeEtcQuantity' value='startPoint'>";
-        lstWrapTxt += "<div class='input_group input_area material_tit'>";
-        lstWrapTxt += "<input type='text' name='recipeEtc' class='input_text' value='' placeholder='재료 묶음 이름'>";
-        lstWrapTxt += "<button type='button' class='btn btn_sm btn_secondary mat_innr_minus' onclick='deleteListWrap(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "재료/양념 묶음 삭제";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "<div class='material_lst_wrap'>";
-        lstWrapTxt += "<ul id='material_lst' class='material_lst'>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 돼지고기'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 300g'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 양배추'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1/2개'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "<li>";
-        lstWrapTxt += "<input type='text' name='recipeEtcIngredient' class='input_text' placeholder='예) 소금'>";
-        lstWrapTxt += "<input type='text' name='recipeEtcQuantity' class='input_text' placeholder='예) 1T'>";
-        lstWrapTxt += "<button type='button' class='btn btn_md btn_secondary btn_radius btn_icon material_lst_del' onclick='deleteList(this)'>";
-        lstWrapTxt += "<i class='ico_del white ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</li>";
-        lstWrapTxt += "</ul>";
-        lstWrapTxt += "<div class='lst_plus_wrap'>"
-        lstWrapTxt += "<button type='button' id='addItemButton' class='btn btn_md btn_border btn_icon mat_lst_plus' onclick='addList(this)'>";
-        lstWrapTxt += "<i class='ico_add black ico_24'></i>";
-        lstWrapTxt += "</button>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "</div>";
-        lstWrapTxt += "</li>";
+        let lstWrapTxt = '<ul class="material_wrap">';
+        lstWrapTxt += '<li class="material_inner">';
+        lstWrapTxt += '<input type="hidden" name="recipeEtcIngredient" value="startPoint">';
+        lstWrapTxt += '<input type="hidden" name="recipeEtcQuantity" value="startPoint">';
+        lstWrapTxt += '<div class="input_group input_area material_tit">';
+        lstWrapTxt += '<input type="text" name="recipeEtc" class="input_text" value="" placeholder="재료 묶음 이름">';
+        lstWrapTxt += '<button type="button" class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '재료/양념 묶음 삭제';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '<div class="material_lst_wrap">';
+        lstWrapTxt += '<ul id="material_lst" class="material_lst">';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 돼지고기">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 300g">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 양배추">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1/2개">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '<li>';
+        lstWrapTxt += '<input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 소금">';
+        lstWrapTxt += '<input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 1T">';
+        lstWrapTxt += '<button type="button" class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)">';
+        lstWrapTxt += '<i class="ico_del white ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '</ul>';
+        lstWrapTxt += '<div class="lst_plus_wrap">';
+        lstWrapTxt += '<button type="button" id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)">';
+        lstWrapTxt += '<i class="ico_add black ico_24"></i>';
+        lstWrapTxt += '</button>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '</div>';
+        lstWrapTxt += '</li>';
+        lstWrapTxt += '</ui>';
+
+       // const myList = document.getElementById('material_wrap');
+       // const textNode = document.createTextNode(lstWrapTxt);
+
+        console.log($('#etcList'));
+
         $('#etcList').append(lstWrapTxt);
+
+
+        console.log($('#etcList'));
+        //myList.append(lstWrapTxt);
+
+       // myList.appendChild(textNode);
+
+        //console.log(document.getElementById('material_wrap'));
+
+        //$('#etcList').append(lstWrapTxt);
     });
 });
 

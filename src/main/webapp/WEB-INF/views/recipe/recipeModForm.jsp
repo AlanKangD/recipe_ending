@@ -160,31 +160,6 @@
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
 
                 <div id="etcList"></div>
-                <<%--c:forEach items="${recipeEtcList}" var="recipeEtcList">
-                <ul class="material_wrap">
-                    <li class="material_inner">
-                        <div class="input_group input_area material_tit">
-                            <input type="text" name="recipeEtc" class="input_text" value="${recipeEtcList}" placeholder="${recipeEtcList}">
-                            <button type="button" class="btn btn_sm btn_secondary mat_innr_minus" onclick="deleteListWrap(this)"><i class="ico_del white ico_24"></i>재료/양념 묶음 삭제</button>
-                        </div>
-                        <div class="material_lst_wrap">
-                            <ul id="material_lst" class="material_lst" name="material_lst">
-
-                                <li>
-                                    <input type="text" name="recipeEtcIngredient" class="input_text" placeholder="예) 돼지고기">
-                                    <input type="text" name="recipeEtcQuantity" class="input_text" placeholder="예) 300g">
-                                    <button class="btn btn_md btn_secondary btn_radius btn_icon material_lst_del" onclick="deleteList(this)"><i class="ico_del white ico_24"></i></button>
-                                </li>
-
-
-                            </ul>
-                            <div class="lst_plus_wrap">
-                                <button type="button" id="addItemButton" class="btn btn_md btn_border btn_icon mat_lst_plus" onclick="addList(this)"><i class="ico_add black ico_24"></i></button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                </c:forEach>--%>
 
                 <div class="material_inner_plus">
                     <button type="button" id="etc_mod" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
@@ -245,8 +220,6 @@
     $(function () {
         var recipeType = $('#recipeTypeCheck').val();
         var recipeTime = $('#recipeTimeCheck').val();
-        alert('####### ' + recipeType);
-        alert('####### ' + recipeTime);
 
 
         $('#recipeType').val(recipeType).change();

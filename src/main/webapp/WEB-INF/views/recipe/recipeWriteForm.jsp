@@ -174,7 +174,7 @@
             <div class="sub_card">
                 <div class="card_desc"><i class="ico_info_circle ico_24"></i><p>재료가 남거나 부족하지 않도록 정확한 계량정보를 적어주세요.</p></div>
                 <div id="test">
-                <ul class="material_wrap">
+                <ul class="material_wrap" id="material_wrap">
                     <li class="material_inner">
                         <div class="input_group input_area material_tit">
                               <input type="text" name="recipeEtc" class="input_text" value="" placeholder="재료 묶음 이름">
@@ -206,7 +206,7 @@
                 </ul>
                 </div>
                 <div class="material_inner_plus">
-                    <button type="button" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
+                    <button type="button" id="etc_reg" class="btn btn_md btn_border mat_innr_plus"><i class="ico_add black ico_24"></i>재료/양념 묶음 추가</button>
                 </div>
             </div>
             <div class="sub_card order_card">

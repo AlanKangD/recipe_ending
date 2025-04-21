@@ -13,6 +13,10 @@
 
 
 	<insert id="insertFileDB" parameterType="com.care.root.file.vo.FileVO">
+		<selectKey keyProperty="recipeNo" resultType="int" order="AFTER">
+			select recipe_no + 1 from RECIPE r order by recipe_no desc limit 1
+		</selectKey>
+
 		insert into
 			ATTACHEMENT (
 			file_original_name
@@ -20,6 +24,13 @@
 			, file_size
 			, file_type
 			, file_dt
+			<if test=" fileRegType eq 'NEW' ">
+				, file_mapping_seq
+			</if>
+			<if test=" fileRegType eq 'NEWSTEP' ">
+				, file_mapping_seq
+			</if>
+
 			)
 		values
 		    (
@@ -28,6 +39,12 @@
 				, #{fileSize}
 				, #{fileType}
 				, now()
+				<if test=" fileRegType eq 'NEW' ">
+				, #{recipeNo}
+				</if>
+				<if test=" fileRegType eq 'NEWSTEP' ">
+				, #{recipeNo} - 1
+				</if>
 			)
 
 

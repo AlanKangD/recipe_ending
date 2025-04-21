@@ -10,6 +10,26 @@ public class FileVO {
 	private String fileType;   // 파일 확장자 및 파일 type
 	private Date fileDt;    // 파일 등록일
 
+	private String fileRegType;
+
+	private int recipeNo;
+
+	public int getRecipeNo() {
+		return recipeNo;
+	}
+
+	public void setRecipeNo(int recipeNo) {
+		this.recipeNo = recipeNo;
+	}
+
+	public String getFileRegType() {
+		return fileRegType;
+	}
+
+	public void setFileRegType(String fileRegType) {
+		this.fileRegType = fileRegType;
+	}
+
 	public int getFileNo() {
 		return fileNo;
 	}

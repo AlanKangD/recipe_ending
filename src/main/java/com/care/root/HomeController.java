@@ -24,7 +24,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-
+        // 해당 부분에서 세션 체크나 jwt 체크가 필요할 듯oi
 		return "redirect:/recipe/recipeList.do";
 	}
 	

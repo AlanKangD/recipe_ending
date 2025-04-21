@@ -207,7 +207,7 @@
                     <button type="submit" class="btn btn_md btn_primary">레시피 수정</button>
                     <button type="button" class="btn btn_md btn_normal">취소</button>
                 </div>
-            </div>정
+            </div>
 
             <input type="hidden" id="recipeTypeCheck" value="${recipe.recipeType}">
             <input type="hidden" id="recipeTimeCheck" value="${recipe.recipeTime}">

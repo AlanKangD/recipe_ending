@@ -59,6 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				, recipe_tip
 				, recipe_person
 				, recipe_time
+				, recipe_reg_dt
 			)
 		VALUES
 			(
@@ -69,6 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				, #{recipeTip}
 				, #{recipePerson}
 				, #{recipeTime}
+				, now()
 			)
 
 	</insert>
@@ -199,5 +201,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and category_code_up = 'timeInfo'
 		or category_code = 'timeInfo'
 	</select>
+
+	<update id="updateFisrtStep" parameterType="com.care.root.recipeBoard.vo.RecipeVO">
+		UPDATE RECIPE SET
+		UPDATE RECIPE SET
+			recipe_type = #{recipeType}
+			, recipe_name = #{recipeName}
+			, recipe_mod_dt = now()
+			, recipe_display = #{recipeDisplay}
+			, recipe_file_name = #{recipeFileName}
+			, recipe_explanation = #{recipeExplanation}
+			, recipe_tip = #{recipeTip}
+			, recipe_person = #{recipePerson}
+			, recipe_time = #{recipeTime}
+			, recipe_like = #{recipeLike}
+			, recipe_view_cnt = #{recipeViewCnt}
+		WHERE recipe_no = #{recipeNo}
+
+	</update>
+
 
 </mapper>

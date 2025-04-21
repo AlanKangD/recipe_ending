@@ -18,6 +18,7 @@ import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequ
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 @Controller
@@ -29,7 +30,7 @@ public class RecipeBoardController {
 	@Autowired
 	FileService fileService;
 
-	@RequestMapping("recipe/template.do")
+	@RequestMapping("/recipe/template.do")
 	public String template() {
 		return "common/template";
 	}
@@ -148,7 +149,7 @@ public class RecipeBoardController {
 	//@Transactional
 	@PostMapping(value = "recipe/recipeBoardWrite")
 	public String recipeBoardOneFile(MultipartHttpServletRequest mul,
-									 @RequestParam("stepFile") List<MultipartFile> multiFileList) {
+									 @RequestParam("stepFile") List<MultipartFile> multiFileList) throws IOException {
 
 		RecipeVO recipeVO = new RecipeVO();
 
@@ -165,7 +166,8 @@ public class RecipeBoardController {
 		}
 
 		if(mul.getFile("imageFile") != null) {
-			String changeFileName = fileService.fileProcess(mul.getFile("imageFile"));
+
+			String changeFileName = fileService.fileProcess(mul.getFile("imageFile"), "NEW");
 			recipeVO.setRecipeFileName(changeFileName);   // 파일 이름 변환 오리지널 이름은 파일 테입르에서 조회가능
 		}
 
@@ -210,7 +212,7 @@ public class RecipeBoardController {
 		System.out.println("recipeDetailContent" + multiFileList);
 		String[] recipeContent =  mul.getParameterValues("recipeContent");
 		for(int i=0; i < multiFileList.size(); i++) {
-			String changeFileName = fileService.fileProcess(multiFileList.get(i));
+			String changeFileName = fileService.fileProcess(multiFileList.get(i), "NEWSTEP");
 			recipeVO.setRecipeFileName(changeFileName);
 			recipeVO.setRecipeDetailContent(recipeContent[i]);
 			recipeVO.setRecipeDetailStep(i+1);
@@ -221,6 +223,47 @@ public class RecipeBoardController {
 
 		return  "redirect:recipeList.do";
 	}
+
+	@RequestMapping(value = "recipe/recipeMod")
+	public void recipeMod(MultipartHttpServletRequest mul,
+							@RequestParam("stepFile") List<MultipartFile> multiFileList) throws IOException {
+
+		RecipeVO recipeVO = new RecipeVO();
+
+		////////////// first Step start //////////////
+		// Enumeration 획득
+		Enumeration<String> enu = mul.getParameterNames();
+
+		Map map = new HashMap();
+
+		while(enu.hasMoreElements()) {
+			String name = (String)enu.nextElement();
+			String value = mul.getParameter(name);
+			map.put(name, value);
+		}
+
+		if(mul.getFile("imageFile") != null) {
+
+			String changeFileName = fileService.fileProcess(mul.getFile("imageFile"), "MOD");
+			//recipeVO.setRecipeFileName(changeFileName);   // 파일 이름 변환 오리지널 이름은 파일 테입르에서 조회가능
+		}
+
+		if (map != null) {  // 1 Step 레시피 수정
+			recipeVO.setRecipeName((String) map.get("recipeName"));
+			recipeVO.setRecipeExplanation((String) map.get("recipeExplanation"));
+			recipeVO.setRecipeType((String) map.get("recipeType"));
+			recipeVO.setRecipeTip((String) map.get("recipeTip"));
+			recipeVO.setRecipePerson((String) map.get("recipePerson"));
+			recipeVO.setRecipeTime((String) map.get("recipeTime"));
+			recipeVO.setRecipeNo((Integer) map.get("recipeNo"));
+			//rs.insertFisrtStep(recipeVO);
+		}
+
+		//////////////first step ok //////////////
+
+		//return "";
+	}
+
 
 	// g , T , t , ml , l , kg
 	public List splitCheckType(String text) {
@@ -236,6 +279,8 @@ public class RecipeBoardController {
 		}
 		return null;
 	}
+
+
 
 
 }
